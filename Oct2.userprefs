@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\itkpi_platformer_client\Assets\Src\Core\PlatformClient.cs">
+    <Files>
+      <File FileName="..\itkpi_platformer_client\Assets\Src\Core\Game.cs" Line="1" Column="1" />
+      <File FileName="..\itkpi_platformer_client\Assets\Src\Core\PlatformClient.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
