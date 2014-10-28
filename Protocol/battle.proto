@@ -1,0 +1,230 @@
+option java_package = "com.viii.battle.net.protocol";
+option java_outer_classname = "Protocol";
+
+////////////////////////////////////////////////////////////
+// ---------------------- System ------------------------ //
+////////////////////////////////////////////////////////////
+
+//0x01
+message SPing{
+    optional string greeting = 1;
+}
+
+//0x01
+message CPing{
+    optional string info = 1;
+}
+
+////////////////////////////////////////////////////////////
+// ----------------------- Auth  ------------------------ //
+////////////////////////////////////////////////////////////
+
+//0x10
+message SNewPlayer{
+    required string name = 1;
+}
+
+//0x10
+message CNewPlayer{
+    required PlayerInfo playerInfo = 1;
+    repeated PlayerInfo onlinePlayers = 2;
+    repeated RoomInfo rooms = 3;
+}
+
+////////////////////////////////////////////////////////////
+// ---------------------- Lobby  ------------------------ //
+////////////////////////////////////////////////////////////
+
+//0x20
+message SGetPlayers{
+    optional bool nothing = 1;
+}
+
+//0x20
+message CGetPlayers{
+    repeated PlayerInfo players = 1;
+}
+
+message PlayerInfo{
+    required int32 id = 1;
+    required string name = 2;
+    optional PlayerState state = 3 [default=IN_LOBBY];
+}
+
+enum PlayerState{
+    IN_LOBBY = 1;
+    IN_ROOM = 2;
+    IN_COMBAT = 3;
+}
+
+//0x21
+message SGetRooms{
+    optional bool nothing = 1;
+}
+
+//0x21
+message CGetRooms{
+    repeated RoomInfo rooms = 1;
+}
+
+message RoomInfo{
+    required int32 id = 1;
+    required int32 capacity = 2;
+    repeated PlayerInfo players = 3;
+    required RoomState state = 4;
+    optional int64 startTimeUTC = 5;
+}
+
+enum RoomState{
+    WAITING = 1;
+    READY = 2;
+    COMBAT = 3;
+}
+
+//0x22
+message SCreateRoom{
+    required int32 capacity = 1;
+}
+
+//0x22
+message CCreateRoom{
+    required bool successful = 1;
+    optional RoomInfo room = 2;
+}
+
+
+//0x23
+message SJoinRoom{
+    required int32 roomId = 1;
+}
+
+//0x23
+message CJoinRoom{
+    required bool successful = 1;
+    optional RoomInfo room = 2;
+}
+
+//0x24
+message SLeaveRoom{
+    required int32 roomId = 1;      //deprecated
+}
+
+//0x24
+message CLeaveRoom{
+    required bool successful = 1;
+}
+
+////////////////////////////////////////////////////////////
+// ---------------------- Game  ------------------------- //
+////////////////////////////////////////////////////////////
+
+//0x30
+message SField {
+    optional bool nothing = 1;
+}
+
+//0x30
+message CField{
+    optional Field field = 1;
+}
+
+enum Status{
+    OK = 1;
+    PLAYER_NOT_FOUND = 2;
+    NOT_IN_COMBAT = 3;
+}
+
+message Field{
+    repeated Cell cells = 1;
+    repeated Panzer panzers = 2;
+}
+
+message Panzer{
+    required PlayerInfo owner = 1;
+    required Position position = 2;
+    optional PanzerProperties properties = 3;
+}
+
+message PanzerProperties{
+    required int32 speed = 1;
+    required int32 power = 2;
+}
+
+message Cell{
+    required Position position = 1;
+    optional Dimension dimension = 2;
+    required CellProperties properties = 3;
+}
+
+message CellProperties{
+    required CellType type = 1;
+    required bool canBeDestroyed = 2;
+    optional int32 health = 3;
+}
+
+enum CellType{
+    BRICK = 1;
+    STEEL = 2;
+}
+
+message Position{
+    required int32 x = 1;
+    required int32 y = 2;
+}
+
+message Dimension{
+    required int32 height = 1;
+    required int32 width = 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

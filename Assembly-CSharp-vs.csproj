@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{FA988AA9-3690-8006-FE07-FD2DFF2420FC}</ProjectGuid>
+	<ProjectGuid>{BE6C17B3-0A6D-C968-05A8-91B193C7946A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -53,6 +53,10 @@
      <Compile Include="Assets\Src\Debug\DebuggerMessages.cs" />
      <Compile Include="Assets\Src\MapBuilder.cs" />
      <Compile Include="Assets\Src\MoveWithTarget.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\AbstractEnvelopes.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\NetworkTypesList.cs" />
      <Compile Include="Assets\Src\OctClient.cs" />
      <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
      <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
@@ -74,13 +78,13 @@
      <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
  <Reference Include="Precompiled">
- <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/Precompiled.dll</HintPath>
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Precompiled.dll</HintPath>
  </Reference>
  <Reference Include="protobuf-net">
- <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/protobuf-net.dll</HintPath>
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/protobuf-net.dll</HintPath>
  </Reference>
  <Reference Include="Protocol">
- <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/Protocol.dll</HintPath>
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Protocol.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
