@@ -1,0 +1,14 @@
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Precompiled.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\protobuf-net.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Protocol.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\UnityEditor.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\UnityEngine.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Mono.Cecil.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\nunit.framework.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\Unity.DataContract.dll
+D:\UnityWorkspace\Oct2\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\UnityWorkspace\Oct2\obj\Debug\Assembly-CSharp-firstpass-vs.csprojResolveAssemblyReference.cache
+D:\UnityWorkspace\Oct2\obj\Debug\Assembly-CSharp-firstpass.dll
+D:\UnityWorkspace\Oct2\obj\Debug\Assembly-CSharp-firstpass.pdb

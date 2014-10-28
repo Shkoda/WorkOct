@@ -46,32 +46,42 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MoveWithPlayer.cs" />
-     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
-     <Compile Include="Assets\Scripts\MoveWithPlayer.cs" />
-     <Compile Include="Assets\Scripts\Ortho2dCamera.cs" />
-     <Compile Include="Assets\Scripts\SkylineManager.cs" />
-     <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
-     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
-     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/UnityWorkspace/Oct2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+     <Compile Include="Assets\Src\CharacterControllerScript.cs" />
+     <Compile Include="Assets\Src\Debug\Console.cs" />
+     <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
+     <Compile Include="Assets\Src\Debug\Debugger.cs" />
+     <Compile Include="Assets\Src\Debug\DebuggerMessages.cs" />
+     <Compile Include="Assets\Src\MapBuilder.cs" />
+     <Compile Include="Assets\Src\MoveWithTarget.cs" />
+     <Compile Include="Assets\Src\OctClient.cs" />
+     <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
+     <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
+     <Compile Include="Assets\Src\Scrollers\StripScroller.cs" />
+     <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\Standart\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Standart\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+ <Reference Include="Precompiled">
+ <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/Precompiled.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{02248507-4AA8-3053-13F9-566F90E6CD6F}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+ <Reference Include="protobuf-net">
+ <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/protobuf-net.dll</HintPath>
+ </Reference>
+ <Reference Include="Protocol">
+ <HintPath>D:/UnityWorkspace/Oct2/Assets/Lib/Protocol.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
