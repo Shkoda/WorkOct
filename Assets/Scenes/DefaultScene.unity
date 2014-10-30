@@ -455,11 +455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334cf66d4d472514d8a7a9301f93028b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  groundCheck: {fileID: 961216513}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &1175858023
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,12 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646d4bf6a411b2e49958ed92e3900259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 100000, guid: 15a22367801b44c4aa2e1d034b64225f, type: 2}
-  TopLeftX: 0
-  TopLeftY: 0
-  FieldWidth: 40
-  FieldHeight: 20
-  WallWidth: 5
 --- !u!4 &1523296339
 Transform:
   m_ObjectHideFlags: 0

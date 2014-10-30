@@ -22,5 +22,10 @@ namespace Assets.Src.Net.Envelopes.Server
         {
             Packet = new SPing() { greeting = "hello my darling"};
         }
+
+        public SPingEnvelope(string value)
+        {
+            Packet = new SPing() { greeting = value };
+        }
     }
 }

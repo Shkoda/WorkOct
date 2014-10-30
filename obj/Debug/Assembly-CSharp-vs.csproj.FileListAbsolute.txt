@@ -1,1 +1,14 @@
 D:\UnityWorkspace\WorkOct\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Assembly-CSharp.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Precompiled.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\protobuf-net.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Protocol.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\UnityEditor.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\UnityEngine.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Mono.Cecil.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\nunit.framework.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Unity.DataContract.dll
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\UnityWorkspace\WorkOct\obj\Debug\Assembly-CSharp.dll
+D:\UnityWorkspace\WorkOct\obj\Debug\Assembly-CSharp.pdb

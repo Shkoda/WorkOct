@@ -74,7 +74,7 @@ namespace Assets.Src.Net.Handler
 
         public static void ConnectAndSendVersion(string address, int port, bool secure)
         {
-            Debugger.Log(string.Format("connecting to server on {0}:{1}...", address, port));
+            Debugger.Log(string.Format("******* connecting to server on {0}:{1}...", address, port));
             if (State != NetworkState.NotConnected)
             {
                 Debugger.Log("Already connected!", DebugType.NetworkHandler);
@@ -91,6 +91,7 @@ namespace Assets.Src.Net.Handler
 
             //throws
             httpNetwork = new TcpNetworkInterface();
+            Debugger.Log("httpNetwork == "+httpNetwork);
 
 
             httpNetwork.Connect(address, port, secure);

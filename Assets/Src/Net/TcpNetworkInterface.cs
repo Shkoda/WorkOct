@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Assets.Src.Net.Envelopes.Server;
 using Assets.Src.Net.Handler;
 using Assets.Src.Threading;
 using ProtoBuf;
@@ -87,7 +88,7 @@ namespace Assets.Src.Net
             serverAddress = address;
             serverPort = port;
             //return;
-            client = new TcpClient();
+//            client = new TcpClient();
 
             isReceiving = true;
 
@@ -108,7 +109,7 @@ namespace Assets.Src.Net
 
         private void ReconnectThread()
         {
-            ThreadManager.RegisterThread("Tcp reconnecting");
+            ThreadManager.RegisterThread("Tcp reconnecting thread");
 
             while (isReceiving)
             {
@@ -148,18 +149,23 @@ namespace Assets.Src.Net
         {
             try
             {
+
+                Debugger.Log(" ~~~~~~~~~~~[1] TryConnect "+address+" : "+port);
                 //client = new TcpClient(new IPEndPoint(IPAddress.Any, port));
                 IPAddress ipadr = IPAddress.Any;
 
                 IPAddress.TryParse(address, out ipadr);
 
-                Debugger.Log("IPAddress :: " + ipadr);
+                Debugger.Log("~~~~~~~~~~~[2] IPAddress :: " + ipadr);
 
                 client = new TcpClient();
-                //                client.Connect(address, port);
+                Debugger.Log("~~~~~~~~~~~ [3] "+client); 
                 client.Connect(address, port);
+                Debugger.Log("~~~~~~~~~~~ [4]"); 
                 networkStream = client.GetStream();
+                Debugger.Log("~~~~~~~~~~~ [5]"); 
                 client.Client.Blocking = true;
+                Debugger.Log("~~~~~~~~~~~ [6] client.Connected == " + client.Connected); 
                 //Read timeout so we can close receiving thread even if packets aren't coming
                 //networkStream.ReadTimeout = 1;
             }
@@ -177,7 +183,13 @@ namespace Assets.Src.Net
             catch (SocketException e)
             {
                 //                Debugger.Log(e.Message, DebugType.Exception);
-                Debugger.Log(e.NativeErrorCode, DebugType.Exception);
+                Debugger.Log(" >>>>>>>>>>>>>> "+e.NativeErrorCode, DebugType.Exception);
+                Debugger.Log(e, DebugType.Exception);
+                return false;
+            }
+            catch (Exception e)
+            {
+                //                Debugger.Log(e.Message, DebugType.Exception);
                 Debugger.Log(e, DebugType.Exception);
                 return false;
             }
@@ -416,7 +428,19 @@ namespace Assets.Src.Net
 
         public void SendGoodbye()
         {
-            throw new System.NotImplementedException();
+
+            Debugger.Log("SendGoodbye is not implemented in TcpNetworkInterface");
+
+          var goodbyeEnvelope=  new SPingEnvelope("bye!");
+            networkStream.WriteByte((byte)goodbyeEnvelope.PacketType);
+                        serializer.SerializeWithLengthPrefix(networkStream,
+                                                             goodbyeEnvelope.Packet,
+                                                             typesList.ServerPacketTypesArray[(int)goodbyeEnvelope.PacketType],
+                                                             PrefixStyle.Fixed32BigEndian,
+                                                             0);
+
+//            throw new System.NotImplementedException();
+
 //            var goodbyeEnvelope = new SGoodbyeEnvelope();
 //            networkStream.WriteByte((byte)goodbyeEnvelope.PacketType);
 //            serializer.SerializeWithLengthPrefix(networkStream,

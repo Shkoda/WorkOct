@@ -1,4 +1,6 @@
-﻿namespace WorkOct.Net.Envelopes
+﻿using Assets.Src.Net.Handler;
+
+namespace WorkOct.Net.Envelopes
 {
     public abstract class ClientEnvelope
     {
@@ -31,9 +33,9 @@
         /// </summary>
         public void Send()
         {
-            Debugger.Log(string.Format("Enqueuing Http envelope: {0}", GetType()));
-            //todo send
-//            NetworkHandler.Send(this);
+            Debugger.Log(string.Format(" << Enqueuing Http envelope: {0}", GetType()));
+        
+            NetworkHandler.Send(this);
         }
     }
 }
