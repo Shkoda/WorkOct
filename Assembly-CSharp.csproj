@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_3;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_3;UNITY_4_5;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,21 +46,35 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Src\CharacterControllerScript.cs" />
      <Compile Include="Assets\Src\Debug\Console.cs" />
      <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
      <Compile Include="Assets\Src\Debug\Debugger.cs" />
      <Compile Include="Assets\Src\Debug\DebuggerMessages.cs" />
-     <Compile Include="Assets\Src\MapBuilder.cs" />
      <Compile Include="Assets\Src\MoveWithTarget.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\AbstractEnvelopes.cs" />
-     <Compile Include="Assets\Src\Net\Envelopes\Client\CEnvelope.cs" />
-     <Compile Include="Assets\Src\Net\Envelopes\Server\SEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CCreateRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CFieldEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CGetPlayersEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CGetRoomsEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CJoinRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CLeaveRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CNewPlayerEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Handler\NetworkHandler.cs" />
+     <Compile Include="Assets\Src\Net\Handler\NetworkState.cs" />
+     <Compile Include="Assets\Src\Net\INetworkInterface.cs" />
      <Compile Include="Assets\Src\Net\NetworkTypesList.cs" />
+     <Compile Include="Assets\Src\Net\TcpNetworkInterface.cs" />
      <Compile Include="Assets\Src\OctClient.cs" />
+     <Compile Include="Assets\Src\Platformer\CharacterControllerScript.cs" />
+     <Compile Include="Assets\Src\Platformer\MapBuilder.cs" />
      <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
      <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
      <Compile Include="Assets\Src\Scrollers\StripScroller.cs" />
+     <Compile Include="Assets\Src\Threading\MainThread.cs" />
+     <Compile Include="Assets\Src\Threading\MainThreadObject.cs" />
+     <Compile Include="Assets\Src\Threading\ThreadManager.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />

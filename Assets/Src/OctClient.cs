@@ -17,4 +17,9 @@ public class OctClient : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public static void Reset()
+    {
+        throw new System.NotImplementedException();
+    }
 }
