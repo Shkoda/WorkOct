@@ -30,7 +30,10 @@ public class MoveWithTarget : MonoBehaviour
         if (Vector3.Distance(cameraPosition, currentTargetPosition) > backlash)
 	    {
 	        Vector3 dif = currentTargetPosition - PreviousTargetPosition;
-	        this.transform.position += new Vector3(dif.x, dif.y, 0);
+	        Vector3 nextPosition = this.transform.position + new Vector3(dif.x, dif.y, 0);
+
+            this.transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime);
+
 	    }
 
 	    PreviousTargetPosition = currentTargetPosition;
