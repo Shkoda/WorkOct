@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using Assets.Src.Net.Envelopes.Server;
 using Assets.Src.Net.Handler;
@@ -22,14 +19,14 @@ namespace Assets.Src.Net
     public class TcpNetworkInterface : INetworkInterface
     {
         /// <summary>
-        /// Event should be Set when connection to server is established and Reset, when it's lost. When being reset it
-        /// blocks receiving thread.
+        ///     Event should be Set when connection to server is established and Reset, when it's lost. When being reset it
+        ///     blocks receiving thread.
         /// </summary>
         private readonly ManualResetEvent receiveEvent = new ManualResetEvent(false);
 
         /// <summary>
-        /// Event should be Set when connection to server is lost. Reconnecting thread then is automaticly unblocked, and
-        /// starts probing network.
+        ///     Event should be Set when connection to server is lost. Reconnecting thread then is automaticly unblocked, and
+        ///     starts probing network.
         /// </summary>
         private readonly ManualResetEvent reconnectEvent = new ManualResetEvent(false);
 
@@ -65,16 +62,93 @@ namespace Assets.Src.Net
                 }
                 if (temp != value)
                 {
-                    StateChanged(this, new StreamStateEventArgs { State = currentStreamState });
+                    StateChanged(this, new StreamStateEventArgs {State = currentStreamState});
                 }
             }
         }
 
         public bool IsConnected { get; private set; }
+
+
+        public void Connect(string address, int port, bool secure)
+        {
+            Connect(address, port);
+        }
+
+        public event Action LostConnection;
+        public event Action ServerError;
+
+        public void StopReceiving(bool wait)
+        {
+            Debugger.Log("Stop receiving Tcp", DebugType.NetworkInterface);
+            isReceiving = false;
+
+            CurrentStreamState = StreamState.Closed;
+            StateChanged(this, new StreamStateEventArgs {State = CurrentStreamState});
+            wasConnected = false;
+
+            AbortConnection(wait);
+
+            if (wait)
+            {
+                reconnectingThread.Join();
+                Debugger.Log("Reconnecting thread down.", writeToUnityConsole: true);
+                receivingThread.Join();
+                Debugger.Log("Receiving thread down.", writeToUnityConsole: true);
+            }
+        }
+
+        public void SendGoodbye()
+        {
+            Debugger.Log("SendGoodbye is not implemented in TcpNetworkInterface");
+
+            var goodbyeEnvelope = new SPingEnvelope("bye!");
+            networkStream.WriteByte((byte) goodbyeEnvelope.PacketType);
+            serializer.SerializeWithLengthPrefix(networkStream,
+                goodbyeEnvelope.Packet,
+                typesList.ServerPacketTypesArray[(int) goodbyeEnvelope.PacketType],
+                PrefixStyle.Fixed32BigEndian,
+                0);
+
+//            throw new System.NotImplementedException();
+
+//            var goodbyeEnvelope = new SGoodbyeEnvelope();
+//            networkStream.WriteByte((byte)goodbyeEnvelope.PacketType);
+//            serializer.SerializeWithLengthPrefix(networkStream,
+//                                                 goodbyeEnvelope.Packet,
+//                                                 typesList.ServerPacketTypesArray[(int)goodbyeEnvelope.PacketType],
+//                                                 PrefixStyle.Fixed32BigEndian,
+//                                                 0);
+//            Debugger.Log("Goodbye packet sent.", writeToUnityConsole: true);
+        }
+
+        public bool SendEnvelope(ServerEnvelope envelope)
+        {
+            try
+            {
+                SendMessage(envelope.Packet, envelope.PacketType,
+                    typesList.ServerPacketTypesArray[(int) envelope.PacketType]);
+            }
+            catch (Exception e)
+            {
+                //                if (envelope.PacketType != ServerMessageType.SDEBUGMESSAGE)
+                //                {
+                Debugger.Log("Error while sending " + envelope.PacketType + ": " + e.Message, writeToUnityConsole: true);
+                StartReconnect();
+                //                }
+                return false;
+            }
+            return true;
+        }
+
+        public void SetSessionKey(ulong sessionKey)
+        {
+        }
+
         public event EventHandler<StreamStateEventArgs> StateChanged = delegate { };
 
         /// <summary>
-        /// Creates connection to server at given address and port. Starts receiving and reconnecting threads.
+        ///     Creates connection to server at given address and port. Starts receiving and reconnecting threads.
         /// </summary>
         /// <param name="address"></param>
         /// <param name="port"></param>
@@ -92,19 +166,12 @@ namespace Assets.Src.Net
 
             isReceiving = true;
 
-            reconnectingThread = new Thread(ReconnectThread) { IsBackground = true };
+            reconnectingThread = new Thread(ReconnectThread) {IsBackground = true};
             reconnectingThread.Start();
             reconnectEvent.Set();
 
             receivingThread = new Thread(Receive);
             receivingThread.Start();
-        }
-
-
-
-        public void Connect(string address, int port, bool secure)
-        {
-            Connect(address, port);
         }
 
         private void ReconnectThread()
@@ -149,8 +216,7 @@ namespace Assets.Src.Net
         {
             try
             {
-
-                Debugger.Log(" ~~~~~~~~~~~[1] TryConnect "+address+" : "+port);
+                Debugger.Log(" ~~~~~~~~~~~[1] TryConnect " + address + " : " + port);
                 //client = new TcpClient(new IPEndPoint(IPAddress.Any, port));
                 IPAddress ipadr = IPAddress.Any;
 
@@ -159,31 +225,31 @@ namespace Assets.Src.Net
                 Debugger.Log("~~~~~~~~~~~[2] IPAddress :: " + ipadr);
 
                 client = new TcpClient();
-                Debugger.Log("~~~~~~~~~~~ [3] "+client); 
+                Debugger.Log("~~~~~~~~~~~ [3] " + client);
                 client.Connect(address, port);
-                Debugger.Log("~~~~~~~~~~~ [4]"); 
+                Debugger.Log("~~~~~~~~~~~ [4]");
                 networkStream = client.GetStream();
-                Debugger.Log("~~~~~~~~~~~ [5]"); 
+                Debugger.Log("~~~~~~~~~~~ [5]");
                 client.Client.Blocking = true;
-                Debugger.Log("~~~~~~~~~~~ [6] client.Connected == " + client.Connected); 
+                Debugger.Log("~~~~~~~~~~~ [6] client.Connected == " + client.Connected);
                 //Read timeout so we can close receiving thread even if packets aren't coming
                 //networkStream.ReadTimeout = 1;
             }
-            ///////////////////////////////////
-            /// 
-            /// 
-            /// 
-            /// 
-            /// 
-            /// 
-            /// 
-            /// 
-            /// 
-            /// ///////////////////////////////////
+                ///////////////////////////////////
+                /// 
+                /// 
+                /// 
+                /// 
+                /// 
+                /// 
+                /// 
+                /// 
+                /// 
+                /// ///////////////////////////////////
             catch (SocketException e)
             {
                 //                Debugger.Log(e.Message, DebugType.Exception);
-                Debugger.Log(" >>>>>>>>>>>>>> "+e.NativeErrorCode, DebugType.Exception);
+                Debugger.Log(" >>>>>>>>>>>>>> " + e.NativeErrorCode, DebugType.Exception);
                 Debugger.Log(e, DebugType.Exception);
                 return false;
             }
@@ -195,30 +261,6 @@ namespace Assets.Src.Net
             }
 
             return true;
-        }
-
-        public event Action LostConnection;
-        public event Action ServerError;
-
-        public void StopReceiving(bool wait)
-        {
-            Debugger.Log("Stop receiving Tcp", DebugType.NetworkInterface);
-            isReceiving = false;
-
-            CurrentStreamState = StreamState.Closed;
-            StateChanged(this, new StreamStateEventArgs { State = CurrentStreamState });
-            wasConnected = false;
-
-            AbortConnection(wait);
-
-            if (wait)
-            {
-                reconnectingThread.Join();
-                Debugger.Log("Reconnecting thread down.", writeToUnityConsole: true);
-                receivingThread.Join();
-                Debugger.Log("Receiving thread down.", writeToUnityConsole: true);
-
-            }
         }
 
         private void AbortConnection(bool wait)
@@ -238,10 +280,10 @@ namespace Assets.Src.Net
                 }
                 catch (Exception e)
                 {
-                    Debugger.Log(string.Format("Aborting exception: {0}", e.Message), writeToUnityConsole: true, stackTrace: e.StackTrace);
+                    Debugger.Log(string.Format("Aborting exception: {0}", e.Message), writeToUnityConsole: true,
+                        stackTrace: e.StackTrace);
                 }
             }
-
         }
 
         private void Receive()
@@ -361,7 +403,7 @@ namespace Assets.Src.Net
                             Debugger.Log(
                                 string.Format("Exception while deserializing packet 0x{1}: {0}", e.Message,
                                     messageType.ToString("X")),
-                                DebugType.Exception, writeToUnityConsole: true, stackTrace: e.StackTrace);
+                                DebugType.Exception, true, stackTrace: e.StackTrace);
                             if (isReceiving)
                             {
                                 StartReconnect();
@@ -381,7 +423,7 @@ namespace Assets.Src.Net
                         }
 
                         Debugger.Log(
-                            string.Format("{0}(0x{1}) received", ((ClientMessageType)messageType),
+                            string.Format("{0}(0x{1}) received", ((ClientMessageType) messageType),
                                 messageType.ToString("X")), DebugType.NetworkInterface);
                         try
                         {
@@ -401,7 +443,7 @@ namespace Assets.Src.Net
             }
             catch (Exception e)
             {
-                Debugger.Log("Unhandled exception in tcp network interface. Details: " + e.ToString(), writeToUnityConsole: true);
+                Debugger.Log("Unhandled exception in tcp network interface. Details: " + e, writeToUnityConsole: true);
             }
             finally
             {
@@ -417,7 +459,7 @@ namespace Assets.Src.Net
             receiveEvent.Reset();
             reconnectEvent.Reset();
 
-            OctClient.Reset();      
+            OctClient.Reset();
         }
 
         public void OnReconnect()
@@ -426,67 +468,19 @@ namespace Assets.Src.Net
             CurrentStreamState = StreamState.Connected;
         }
 
-        public void SendGoodbye()
-        {
-
-            Debugger.Log("SendGoodbye is not implemented in TcpNetworkInterface");
-
-          var goodbyeEnvelope=  new SPingEnvelope("bye!");
-            networkStream.WriteByte((byte)goodbyeEnvelope.PacketType);
-                        serializer.SerializeWithLengthPrefix(networkStream,
-                                                             goodbyeEnvelope.Packet,
-                                                             typesList.ServerPacketTypesArray[(int)goodbyeEnvelope.PacketType],
-                                                             PrefixStyle.Fixed32BigEndian,
-                                                             0);
-
-//            throw new System.NotImplementedException();
-
-//            var goodbyeEnvelope = new SGoodbyeEnvelope();
-//            networkStream.WriteByte((byte)goodbyeEnvelope.PacketType);
-//            serializer.SerializeWithLengthPrefix(networkStream,
-//                                                 goodbyeEnvelope.Packet,
-//                                                 typesList.ServerPacketTypesArray[(int)goodbyeEnvelope.PacketType],
-//                                                 PrefixStyle.Fixed32BigEndian,
-//                                                 0);
-//            Debugger.Log("Goodbye packet sent.", writeToUnityConsole: true);
-        }
-
-        public bool SendEnvelope(ServerEnvelope envelope)
-        {
-            try
-            {
-                SendMessage(envelope.Packet, envelope.PacketType,
-                            typesList.ServerPacketTypesArray[(int)envelope.PacketType]);
-            }
-            catch (Exception e)
-            {
-                //                if (envelope.PacketType != ServerMessageType.SDEBUGMESSAGE)
-                //                {
-                Debugger.Log("Error while sending " + envelope.PacketType + ": " + e.Message, writeToUnityConsole: true);
-                StartReconnect();
-                //                }
-                return false;
-            }
-            return true;
-        }
-
-        public void SetSessionKey(ulong sessionKey)
-        {
-        }
-
         private void SendMessage(object message, ServerMessageType typePrefix, Type type)
         {
             if ((CurrentStreamState & (StreamState.Connected | StreamState.Reconnected)) == 0)
             {
                 throw new Exception("Not connected to server");
             }
-            networkStream.WriteByte((byte)typePrefix);
+            networkStream.WriteByte((byte) typePrefix);
             serializer.SerializeWithLengthPrefix(networkStream, message, type, PrefixStyle.Fixed32BigEndian, 0);
 
             //            if (typePrefix != ServerMessageType.SDEBUGMESSAGE)
             //            {
-            Debugger.Log(string.Format("Sending {0} (0x{1})", typePrefix.ToString(), ((int)typePrefix).ToString("X")),
-                             DebugType.NetworkInterface);
+            Debugger.Log(string.Format("Sending {0} (0x{1})", typePrefix, ((int) typePrefix).ToString("X")),
+                DebugType.NetworkInterface);
             //            }
             networkStream.Flush();
         }

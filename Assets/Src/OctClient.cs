@@ -272,12 +272,86 @@ public class OctClient : MonoBehaviour
         return true;
     }
 
+    public static string user = "", name = "";
+    private string password = "", rePass = "", message = "";
+
+    private bool register = false;
+
+
     public void OnGUI()
     {
-        if (GUI.Button(new Rect(0, 0, 200, 100), "Walls"))
-        {
-            //                CurrentGame.CreateWorld(null);
-            //                CurrentGame.AddPlayer();
-        }
+//        if (message != "")
+//            GUILayout.Box(message);
+//
+//        if (register)
+//        {
+//            GUILayout.Label("Username");
+//            user = GUILayout.TextField(user);
+//            GUILayout.Label("Name");
+//            name = GUILayout.TextField(name);
+//            GUILayout.Label("password");
+//            password = GUILayout.PasswordField(password, "*"[0]);
+//            GUILayout.Label("Re-password");
+//            rePass = GUILayout.PasswordField(rePass, "*"[0]);
+//
+//            GUILayout.BeginHorizontal();
+//
+//            if (GUILayout.Button("Back"))
+//                register = false;
+//
+//            if (GUILayout.Button("Register"))
+//            {
+//                message = "";
+//
+//                if (user == "" || name == "" || password == "")
+//                    message += "Please enter all the fields \n";
+//                else
+//                {
+//                    if (password == rePass)
+//                    {
+//                        WWWForm form = new WWWForm();
+//                        form.AddField("user", user);
+//                        form.AddField("name", name);
+//                        form.AddField("password", password);
+////                        WWW w = new WWW("http://f6-preview.awardspace.com/unitytutorial.com/register.php", form);
+////                        StartCoroutine(registerFunc(w));
+//                    }
+//                    else
+//                        message += "Your Password does not match \n";
+//                }
+//            }
+//
+//            GUILayout.EndHorizontal();
+//        }
+//        else
+//        {
+//            GUILayout.Label("User:");
+//            user = GUILayout.TextField(user);
+//            GUILayout.Label("Password:");
+//            password = GUILayout.PasswordField(password, "*"[0]);
+//
+//            GUILayout.BeginHorizontal();
+//
+//            if (GUILayout.Button("Login"))
+//            {
+//                message = "";
+//
+//                if (user == "" || password == "")
+//                    message += "Please enter all the fields \n";
+//                else
+//                {
+//                    WWWForm form = new WWWForm();
+//                    form.AddField("user", user);
+//                    form.AddField("password", password);
+////                    WWW w = new WWW("http://f6-preview.awardspace.com/unitytutorial.com/login.php", form);
+////                    StartCoroutine(login(w));
+//                }
+//            }
+//
+//            if (GUILayout.Button("Register"))
+//                register = true;
+//
+//            GUILayout.EndHorizontal();
+//        }
     }
 }

@@ -61,7 +61,7 @@ namespace Assets.Src.Net.Handler
 
 
         /// <summary>
-        ///     Current state of network to allow packets filtering (don't send SUpdates, when user is not logged in, for example)
+        ///     Current state of network to allow packets filtering (don't send SUpdates, when login is not logged in, for example)
         /// </summary>
         public static NetworkState State { get; set; }
 
