@@ -185,7 +185,7 @@ GameObject:
   - 114: {fileID: 270864863}
   - 114: {fileID: 270864862}
   m_Layer: 5
-  m_Name: Button
+  m_Name: LoginButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ RectTransform:
   m_Children:
   - {fileID: 510602648}
   m_Father: {fileID: 1688845279}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 14.1000004, y: -49.5999985}
@@ -410,10 +410,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1688845279}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -28.1000004, y: 45.4000015}
+  m_AnchoredPosition: {x: -28.1000004, y: 47.4000015}
   m_SizeDelta: {x: 137.699997, y: 28.7999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &962494456
@@ -529,7 +529,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 9.69999981, y: 0}
+  m_AnchoredPosition: {x: 9, y: 0}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1329645060
@@ -570,8 +570,9 @@ GameObject:
   - 222: {fileID: 1580921381}
   - 114: {fileID: 1580921380}
   - 114: {fileID: 1580921379}
+  - 114: {fileID: 1580921382}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: LoginInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +593,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 12.8999996, y: 8.69999981}
+  m_AnchoredPosition: {x: 14.1000004, y: 5.30000019}
   m_SizeDelta: {x: 240.600006, y: 39}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1580921379
@@ -617,7 +618,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: .501960814}
     m_HighlightedColor: {r: .764705896, g: .764705896, b: .764705896, a: .698039234}
     m_PressedColor: {r: .713235259, g: .713235259, b: .713235259, a: .698039234}
-    m_DisabledColor: {r: .5, g: .5, b: .5, a: .501960814}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: .501960814}
     m_ColorMultiplier: 2
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -647,7 +648,19 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
@@ -680,6 +693,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580921377}
+--- !u!114 &1580921382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580921377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef304a148c1c4df4288d5727c2b16f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginInput: {fileID: 1580921379}
+  LoginButton: {fileID: 270864862}
 --- !u!1 &1590257376
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,9 +874,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1329645059}
-  - {fileID: 962494455}
-  - {fileID: 1580921378}
   - {fileID: 270864861}
+  - {fileID: 1580921378}
+  - {fileID: 962494455}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}

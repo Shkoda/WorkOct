@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Src\Battle\BattleGame.cs" />
-     <Compile Include="Assets\Src\Battle\GUI\LoginForm.cs" />
      <Compile Include="Assets\Src\Debug\Console.cs" />
      <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
      <Compile Include="Assets\Src\Debug\Debugger.cs" />
@@ -83,6 +82,8 @@
      <Compile Include="Assets\Src\Threading\MainThreadObject.cs" />
      <Compile Include="Assets\Src\Threading\ThreadManager.cs" />
      <Compile Include="Assets\Src\Tools\UserDataPermanentStorage.cs" />
+     <Compile Include="Assets\Src\UI\Auth\LoginButton.cs" />
+     <Compile Include="Assets\Src\UI\Auth\LoginTextField.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />
