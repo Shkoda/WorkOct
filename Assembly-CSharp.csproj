@@ -62,6 +62,7 @@
      <Compile Include="Assets\Src\Net\Envelopes\Client\CLeaveRoomEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Client\CNewPlayerEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Client\CPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SNewPlayerEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Server\SPingEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Handler\NetworkHandler.cs" />
      <Compile Include="Assets\Src\Net\Handler\NetworkState.cs" />

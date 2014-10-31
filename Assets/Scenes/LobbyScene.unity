@@ -185,6 +185,7 @@ GameObject:
   - 222: {fileID: 270864864}
   - 114: {fileID: 270864863}
   - 114: {fileID: 270864862}
+  - 114: {fileID: 270864865}
   m_Layer: 5
   m_Name: LoginButton
   m_TagString: Untagged
@@ -248,7 +249,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270864863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 270864865}
+        m_MethodName: sendLoginToServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &270864863
@@ -278,6 +291,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 270864860}
+--- !u!114 &270864865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270864860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28e40f4a16fbc4db67ee4b9f6dc602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginInputField: {fileID: 1580921379}
 --- !u!1 &510602645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1038,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .454901963, g: 1, b: .768627465, a: 1}
+  m_Color: {r: .186851218, g: .941176474, b: .941176474, a: 1}
   m_Intensity: .280000001
   m_Range: 9.07487106
   m_SpotAngle: 78.5999985

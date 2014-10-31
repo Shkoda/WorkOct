@@ -216,46 +216,27 @@ namespace Assets.Src.Net
         {
             try
             {
-                Debugger.Log(" ~~~~~~~~~~~[1] TryConnect " + address + " : " + port);
-                //client = new TcpClient(new IPEndPoint(IPAddress.Any, port));
-                IPAddress ipadr = IPAddress.Any;
+                Debugger.Log("TryConnect " + address + " : " + port);
+           IPAddress ipadr = IPAddress.Any;
 
                 IPAddress.TryParse(address, out ipadr);
 
-                Debugger.Log("~~~~~~~~~~~[2] IPAddress :: " + ipadr);
-
                 client = new TcpClient();
-                Debugger.Log("~~~~~~~~~~~ [3] " + client);
                 client.Connect(address, port);
-                Debugger.Log("~~~~~~~~~~~ [4]");
                 networkStream = client.GetStream();
-                Debugger.Log("~~~~~~~~~~~ [5]");
                 client.Client.Blocking = true;
-                Debugger.Log("~~~~~~~~~~~ [6] client.Connected == " + client.Connected);
                 //Read timeout so we can close receiving thread even if packets aren't coming
                 //networkStream.ReadTimeout = 1;
             }
-                ///////////////////////////////////
-                /// 
-                /// 
-                /// 
-                /// 
-                /// 
-                /// 
-                /// 
-                /// 
-                /// 
-                /// ///////////////////////////////////
+
             catch (SocketException e)
             {
-                //                Debugger.Log(e.Message, DebugType.Exception);
-                Debugger.Log(" >>>>>>>>>>>>>> " + e.NativeErrorCode, DebugType.Exception);
+                Debugger.Log(e.NativeErrorCode, DebugType.Exception);
                 Debugger.Log(e, DebugType.Exception);
                 return false;
             }
             catch (Exception e)
             {
-                //                Debugger.Log(e.Message, DebugType.Exception);
                 Debugger.Log(e, DebugType.Exception);
                 return false;
             }
