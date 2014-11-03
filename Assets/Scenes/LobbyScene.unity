@@ -185,7 +185,6 @@ GameObject:
   - 222: {fileID: 270864864}
   - 114: {fileID: 270864863}
   - 114: {fileID: 270864862}
-  - 114: {fileID: 270864865}
   m_Layer: 5
   m_Name: LoginButton
   m_TagString: Untagged
@@ -250,7 +249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270864865}
+      - m_Target: {fileID: 1688845281}
         m_MethodName: sendLoginToServer
         m_Mode: 1
         m_Arguments:
@@ -291,19 +290,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 270864860}
---- !u!114 &270864865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 270864860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b28e40f4a16fbc4db67ee4b9f6dc602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoginInputField: {fileID: 1580921379}
-  LoginWindowAnimator: {fileID: 1688845280}
 --- !u!1 &510602645
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +688,7 @@ Animator:
   m_GameObject: {fileID: 1329645058}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a66d8f551ec826646998b2352fab4a82, type: 2}
+  m_Controller: {fileID: 9100000, guid: be4eb1df213934c4592b3116faa73ba1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -719,7 +705,6 @@ GameObject:
   - 222: {fileID: 1580921381}
   - 114: {fileID: 1580921380}
   - 114: {fileID: 1580921379}
-  - 114: {fileID: 1580921382}
   m_Layer: 5
   m_Name: LoginInputField
   m_TagString: Untagged
@@ -842,19 +827,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580921377}
---- !u!114 &1580921382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1580921377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef304a148c1c4df4288d5727c2b16f66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoginInput: {fileID: 1580921379}
-  LoginButton: {fileID: 270864862}
 --- !u!1 &1590257376
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,10 +923,11 @@ GameObject:
   - 114: {fileID: 1688845277}
   - 114: {fileID: 1688845276}
   - 95: {fileID: 1688845280}
+  - 114: {fileID: 1688845281}
   m_Layer: 5
   m_Name: LoginInfo
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1319202362, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1040,12 +1013,27 @@ Animator:
   m_GameObject: {fileID: 1688845275}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b933d7a1b3212d46b105befb5ef6efe, type: 2}
+  m_Controller: {fileID: 9100000, guid: be4eb1df213934c4592b3116faa73ba1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1688845281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1688845275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdb11e5ca5597f4e83860b292206354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginCanvas: {fileID: 1688845278}
+  LoginInput: {fileID: 1580921379}
+  LoginButton: {fileID: 270864862}
+  LoginWindowAnimator: {fileID: 1688845280}
 --- !u!1 &1756436434
 GameObject:
   m_ObjectHideFlags: 0
