@@ -43,6 +43,8 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_WIN
+-define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 Assets/Src/Battle/BattleGame.cs
 Assets/Src/Debug/Console.cs
 Assets/Src/Debug/DebugPanel.cs
@@ -80,8 +82,7 @@ Assets/Src/Threading/MainThread.cs
 Assets/Src/Threading/MainThreadObject.cs
 Assets/Src/Threading/ThreadManager.cs
 Assets/Src/Tools/UserDataPermanentStorage.cs
-Assets/Src/UI/Auth/LoginButton.cs
-Assets/Src/UI/Auth/LoginTextField.cs
+Assets/Src/UI/Auth/LoginFormController.cs
 "Assets/Standart/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs"
 "Assets/Standart/Standard Assets/Scripts/General Scripts/ActivateTrigger.cs"
 -r:"C:/Program Files (x86)/Unity/Editor/Data/Mono\lib/mono/unity\System.Runtime.Serialization.dll"
