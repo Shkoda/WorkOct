@@ -7,6 +7,7 @@ namespace Assets.Src.UI.Auth
     public class LoginButton : MonoBehaviour
     {
         public InputField LoginInputField;
+        public Animator LoginWindowAnimator;
 
         // Use this for initialization
         private void Start()
@@ -26,6 +27,7 @@ namespace Assets.Src.UI.Auth
                 return;
             Debugger.Log("LoginButton.sendLoginToServer "+login);
             new SNewPlayerEnvelope(login).Send();
+            LoginWindowAnimator.SetBool("LoggedIn", true);
         }
 
     }

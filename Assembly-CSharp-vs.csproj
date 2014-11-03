@@ -1,119 +1,118 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BE6C17B3-0A6D-C968-05A8-91B193C7946A}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>
-    </RootNamespace>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <BaseDirectory>Assets</BaseDirectory>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{BE6C17B3-0A6D-C968-05A8-91B193C7946A}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+	<Reference Include="System" />
     <Reference Include="System.XML" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-    </Reference>
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Src\Battle\BattleGame.cs" />
-    <Compile Include="Assets\Src\Debug\Console.cs" />
-    <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
-    <Compile Include="Assets\Src\Debug\Debugger.cs" />
-    <Compile Include="Assets\Src\Debug\DebuggerMessages.cs" />
-    <Compile Include="Assets\Src\MoveWithTarget.cs" />
-    <Compile Include="Assets\Src\Net\ConnectionConfig.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\AbstractEnvelopes.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CCreateRoomEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CFieldEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CGetPlayersEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CGetRoomsEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CJoinRoomEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CLeaveRoomEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CNewPlayerEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Client\CPingEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Server\SNewPlayerEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Envelopes\Server\SPingEnvelope.cs" />
-    <Compile Include="Assets\Src\Net\Handler\NetworkHandler.cs" />
-    <Compile Include="Assets\Src\Net\Handler\NetworkState.cs" />
-    <Compile Include="Assets\Src\Net\INetworkInterface.cs" />
-    <Compile Include="Assets\Src\Net\NetworkTypesList.cs" />
-    <Compile Include="Assets\Src\Net\TcpNetworkInterface.cs" />
-    <Compile Include="Assets\Src\OctClient.cs" />
-    <Compile Include="Assets\Src\Platformer\CharacterControllerScript.cs" />
-    <Compile Include="Assets\Src\Platformer\MapBuilder.cs" />
-    <Compile Include="Assets\Src\Scenes\ASceneController.cs" />
-    <Compile Include="Assets\Src\Scenes\ASceneGui.cs" />
-    <Compile Include="Assets\Src\Scenes\SceneControllerWrapper.cs" />
-    <Compile Include="Assets\Src\Scenes\SceneLoader.cs" />
-    <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
-    <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
-    <Compile Include="Assets\Src\Scrollers\StripScroller.cs" />
-    <Compile Include="Assets\Src\Threading\MainThread.cs" />
-    <Compile Include="Assets\Src\Threading\MainThreadObject.cs" />
-    <Compile Include="Assets\Src\Threading\ThreadManager.cs" />
-    <Compile Include="Assets\Src\Tools\UserDataPermanentStorage.cs" />
-    <Compile Include="Assets\Src\UI\Auth\LoginButton.cs" />
-    <Compile Include="Assets\Src\UI\Auth\LoginTextField.cs" />
-    <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
-    <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
-    <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-    <None Include="Assets\Standart\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
-    <None Include="Assets\Standart\Standard Assets\Skyboxes\_skybox info.txt" />
-    <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
-    <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Precompiled">
-      <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Precompiled.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="Protocol">
-      <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Protocol.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\Src\Battle\BattleGame.cs" />
+     <Compile Include="Assets\Src\Debug\Console.cs" />
+     <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
+     <Compile Include="Assets\Src\Debug\Debugger.cs" />
+     <Compile Include="Assets\Src\Debug\DebuggerMessages.cs" />
+     <Compile Include="Assets\Src\MoveWithTarget.cs" />
+     <Compile Include="Assets\Src\Net\ConnectionConfig.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\AbstractEnvelopes.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CCreateRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CFieldEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CGetPlayersEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CGetRoomsEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CJoinRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CLeaveRoomEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CNewPlayerEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Client\CPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SNewPlayerEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Handler\NetworkHandler.cs" />
+     <Compile Include="Assets\Src\Net\Handler\NetworkState.cs" />
+     <Compile Include="Assets\Src\Net\INetworkInterface.cs" />
+     <Compile Include="Assets\Src\Net\NetworkTypesList.cs" />
+     <Compile Include="Assets\Src\Net\TcpNetworkInterface.cs" />
+     <Compile Include="Assets\Src\OctClient.cs" />
+     <Compile Include="Assets\Src\Platformer\CharacterControllerScript.cs" />
+     <Compile Include="Assets\Src\Platformer\MapBuilder.cs" />
+     <Compile Include="Assets\Src\Scenes\ASceneController.cs" />
+     <Compile Include="Assets\Src\Scenes\ASceneGui.cs" />
+     <Compile Include="Assets\Src\Scenes\SceneControllerWrapper.cs" />
+     <Compile Include="Assets\Src\Scenes\SceneLoader.cs" />
+     <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
+     <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
+     <Compile Include="Assets\Src\Scrollers\StripScroller.cs" />
+     <Compile Include="Assets\Src\Threading\MainThread.cs" />
+     <Compile Include="Assets\Src\Threading\MainThreadObject.cs" />
+     <Compile Include="Assets\Src\Threading\ThreadManager.cs" />
+     <Compile Include="Assets\Src\Tools\UserDataPermanentStorage.cs" />
+     <Compile Include="Assets\Src\UI\Auth\LoginButton.cs" />
+     <Compile Include="Assets\Src\UI\Auth\LoginTextField.cs" />
+     <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\Standart\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Standart\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standart\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
+     <None Include="Assets\Standart\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Precompiled">
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Precompiled.dll</HintPath>
+ </Reference>
+ <Reference Include="protobuf-net">
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/protobuf-net.dll</HintPath>
+ </Reference>
+ <Reference Include="Protocol">
+ <HintPath>D:/UnityWorkspace/WorkOct/Assets/Lib/Protocol.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -123,4 +122,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
