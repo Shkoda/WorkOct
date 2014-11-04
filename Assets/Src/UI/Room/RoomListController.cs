@@ -19,13 +19,15 @@ public class RoomListController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        TopX = FirstPanelPositionObject.transform.position.x;
-        TopY = FirstPanelPositionObject.transform.position.y;
-        TopZ = FirstPanelPositionObject.transform.position.z;
-        InfoHeight = FirstPanelPositionObject.sizeDelta.y;
+        TopX = 9;
+        TopY = -12;
+        TopZ = 0;
+
+        InfoHeight = RoomInfoPrefab.GetComponent<RectTransform>().sizeDelta.y;
         OffsetBetweenInfos = 5;
         InstantinateTestRoomList();
     }
+
 
     // Update is called once per frame
     private void Update()
@@ -34,11 +36,14 @@ public class RoomListController : MonoBehaviour
 
     public void InstantinateTestRoomList()
     {
-        Debugger.Log("------ call RoomListController.InstantinateTestRoomList() " +
-                     DateTime.Now.ToString("HH:mm:ss.fff tt"));
+        int roomNumber = 10;
+
+        UpdateParentPanelSize(roomNumber);
+
         Random random = new Random();
 
-        for (int i = 0; i < 10; i++)
+
+        for (int i = 0; i < roomNumber; i++)
         {
             int roomId = i + 1;
             int playersInside = random.Next(5);
@@ -46,11 +51,18 @@ public class RoomListController : MonoBehaviour
             string status = "Waiting for " + (capacity - playersInside) + " players";
 
 
-            AddRoomInfo(TopLeftCorner(i), roomId, playersInside, capacity, status);
+            AddRoomInfo(AnchoredPosition(i), roomId, playersInside, capacity, status);
         }
     }
 
-    private Vector3 TopLeftCorner(int infoNumber)
+    private void UpdateParentPanelSize(int roomNumber)
+    {
+        var parentRectTransform = ParentPane.GetComponent<RectTransform>();
+        parentRectTransform.sizeDelta = new Vector2(parentRectTransform.sizeDelta.x,
+            roomNumber*(InfoHeight + OffsetBetweenInfos)-TopY);
+    }
+
+    private Vector3 AnchoredPosition(int infoNumber)
     {
         float x = TopX;
         float y = TopY - infoNumber*(InfoHeight + OffsetBetweenInfos);
@@ -58,20 +70,13 @@ public class RoomListController : MonoBehaviour
         return new Vector3(x, y, z);
     }
 
-    private void AddRoomInfo(Vector3 topLeftCorner, int roomId, int playersInside, int capacity, string status)
+    private void AddRoomInfo(Vector3 anchoredPosition, int roomId, int playersInside, int capacity, string status)
     {
-        Debugger.Log("Generated room #" + roomId + ", " + playersInside + "/" + capacity + ", status : " + status);
-        var info = (GameObject) Instantiate(RoomInfoPrefab, topLeftCorner, Quaternion.identity);
+        var info = (GameObject) Instantiate(RoomInfoPrefab);
 
-
-        info.transform.parent = ParentPane.transform;
-
-        var recTransform = info.GetComponent<RectTransform>();
-        recTransform.anchoredPosition.Set(FirstPanelPositionObject.anchoredPosition.x,
-            FirstPanelPositionObject.anchoredPosition.y);
-
-
-//        recTransform.anchoredPosition.x
+        var rectTransform = info.GetComponent<RectTransform>();
+        rectTransform.parent = ParentPane.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = anchoredPosition;
 
         var infoHolder = info.GetComponent<RoomInfoHolder>();
         infoHolder.RoomNameField.text = "#" + roomId;

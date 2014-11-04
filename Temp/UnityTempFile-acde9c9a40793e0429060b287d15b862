@@ -83,6 +83,7 @@ Assets/Src/Threading/MainThreadObject.cs
 Assets/Src/Threading/ThreadManager.cs
 Assets/Src/Tools/UserDataPermanentStorage.cs
 Assets/Src/UI/Auth/LoginFormController.cs
+Assets/Src/UI/Room/RoomInfoHolder.cs
 Assets/Src/UI/Room/RoomListController.cs
 "Assets/Standart/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs"
 "Assets/Standart/Standard Assets/Scripts/General Scripts/ActivateTrigger.cs"
