@@ -19,7 +19,7 @@ public class RoomListController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        TopX = 9;
+        TopX = 0;
         TopY = -12;
         TopZ = 0;
 
