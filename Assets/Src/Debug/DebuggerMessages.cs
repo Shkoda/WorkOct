@@ -1,5 +1,4 @@
-﻿
-partial class Debugger
+﻿partial class Debugger
 {
     #region Nested type: Message
 

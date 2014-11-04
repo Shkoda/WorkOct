@@ -20,10 +20,7 @@ namespace Assets.Src.Threading
 
         public float DeltaTime
         {
-            get
-            {
-                return this._deltaTime;
-            }
+            get { return this._deltaTime; }
             set
             {
                 this._deltaTime = value;
@@ -33,14 +30,8 @@ namespace Assets.Src.Threading
 
         public bool Once
         {
-            get
-            {
-                return this._once;
-            }
-            set
-            {
-                this._once = value;
-            }
+            get { return this._once; }
+            set { this._once = value; }
         }
 
         public void DecrementDeltaTime(float time)

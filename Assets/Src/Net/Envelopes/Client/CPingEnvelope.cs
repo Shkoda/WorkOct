@@ -7,14 +7,11 @@ using WorkOct.Net.Envelopes;
 
 namespace Assets.Src.Net.Envelopes.Client
 {
-   public class CPingEnvelope : ClientEnvelope
+    public class CPingEnvelope : ClientEnvelope
     {
         public override ClientMessageType PacketType
         {
-            get
-            {
-                return ClientMessageType.CPING;
-            }
+            get { return ClientMessageType.CPING; }
         }
 
         public override void Handle()
@@ -26,7 +23,7 @@ namespace Assets.Src.Net.Envelopes.Client
 
         public override ClientEnvelope Create(object packet)
         {
-            var envelope = new CPingEnvelope { Packet = packet };
+            var envelope = new CPingEnvelope {Packet = packet};
             return envelope;
         }
     }

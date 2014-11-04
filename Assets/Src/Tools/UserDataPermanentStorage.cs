@@ -88,6 +88,4 @@ namespace Assets.Src.Tools
             SavePlayerGuid(_guidCache, true);
         }
     }
-
-   
 }

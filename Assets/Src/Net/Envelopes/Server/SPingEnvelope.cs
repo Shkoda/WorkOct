@@ -8,24 +8,21 @@ using WorkOct.Protocol;
 
 namespace Assets.Src.Net.Envelopes.Server
 {
-    class SPingEnvelope: ServerEnvelope
+    internal class SPingEnvelope : ServerEnvelope
     {
         public override ServerMessageType PacketType
         {
-            get
-            {
-                return ServerMessageType.SPING;
-            }
+            get { return ServerMessageType.SPING; }
         }
 
         public SPingEnvelope()
         {
-            Packet = new SPing() { greeting = "hello my darling"};
+            Packet = new SPing() {greeting = "hello my darling"};
         }
 
         public SPingEnvelope(string value)
         {
-            Packet = new SPing() { greeting = value };
+            Packet = new SPing() {greeting = value};
         }
     }
 }

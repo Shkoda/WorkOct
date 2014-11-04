@@ -1,4 +1,5 @@
 ﻿//using ItKpi.Net.Envelopes.Server;
+
 using UnityEngine;
 
 namespace Slots.Debug
@@ -20,6 +21,5 @@ namespace Slots.Debug
             {
             }
         }
-
     }
 }

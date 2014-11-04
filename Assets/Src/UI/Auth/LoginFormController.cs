@@ -10,15 +10,16 @@ public class LoginFormController : MonoBehaviour
     public Button LoginButton;
     public Animator LoginWindowAnimator;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
         LoginButton.interactable = LoginInput.text != null && LoginInput.text.text.Length > 0;
-	}
+    }
 
     public void sendLoginToServer()
     {
@@ -34,12 +35,9 @@ public class LoginFormController : MonoBehaviour
     {
         Debugger.Log("hiding login form...");
         LoginCanvas.enabled = false;
-
     }
 
     public void AaaOoo()
     {
-        
     }
-
 }

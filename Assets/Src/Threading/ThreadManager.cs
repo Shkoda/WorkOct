@@ -23,18 +23,12 @@ namespace Assets.Src.Threading
 
         public static int ThreadCount
         {
-            get
-            {
-                return _threadCount;
-            }
+            get { return _threadCount; }
         }
 
         public static bool IsRunningInMainThread
         {
-            get
-            {
-                return Thread.CurrentThread.ManagedThreadId == MainThreadId;
-            }
+            get { return Thread.CurrentThread.ManagedThreadId == MainThreadId; }
         }
 
         public static int MainThreadId { get; private set; }
@@ -158,5 +152,4 @@ namespace Assets.Src.Threading
             MainThreadId = Thread.CurrentThread.ManagedThreadId;
         }
     }
-
 }

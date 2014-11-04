@@ -48,29 +48,25 @@ public class CharacterControllerScript : MonoBehaviour
 
         if (isGrounded)
         {
-          
-
             //в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
             //приэтом нам нужен модуль значения
             anim.SetFloat("Speed", Mathf.Abs(move));
 
             //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
             //равную значению оси Х умноженное на значение макс. скорости
-            rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);  
+            rigidbody2D.velocity = new Vector2(move*maxSpeed, rigidbody2D.velocity.y);
         }
         else
         {
-            rigidbody2D.AddForce(new Vector2(10 * move, 0));
+            rigidbody2D.AddForce(new Vector2(10*move, 0));
         }
-          
 
-      
 
         //если нажали клавишу для перемещения вправо, а персонаж направлен влево
         if (move > 0 && !isFacingRight)
             //отражаем персонажа вправо
             Flip();
-        //обратная ситуация. отражаем персонажа влево
+            //обратная ситуация. отражаем персонажа влево
         else if (move < 0 && isFacingRight)
             Flip();
     }

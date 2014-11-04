@@ -33,7 +33,6 @@ namespace Assets.Src.Scenes
         /// <param name="previousScene">Previous scene name</param>
         public virtual void OnBeforeLoad(string previousScene)
         {
-
         }
 
         /// <summary>
@@ -41,8 +40,8 @@ namespace Assets.Src.Scenes
         /// </summary>
         public virtual void OnAfterLoad()
         {
-
         }
+
         /// <summary>
         /// Called after loading scene, can be used to copy data from controller passed to SceneLoader
         /// to controller which is added to scene
@@ -50,37 +49,30 @@ namespace Assets.Src.Scenes
         /// <param name="newController"></param>
         public virtual void CopyFrom(ASceneController newController)
         {
-
         }
 
         public virtual void Update()
         {
-
         }
 
         public virtual void LateUpdate()
         {
-
         }
 
         public virtual void Start()
         {
-
         }
 
         public virtual void Awake()
         {
-
         }
 
         public virtual void OnDestroy()
         {
-
         }
 
         public virtual void OnGUI()
         {
-
         }
     }
 }

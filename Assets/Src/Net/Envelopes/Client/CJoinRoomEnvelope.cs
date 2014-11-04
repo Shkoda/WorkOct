@@ -11,10 +11,7 @@ namespace Assets.Src.Net.Envelopes.Client
     {
         public override ClientMessageType PacketType
         {
-            get
-            {
-                return ClientMessageType.CJOINROOM;
-            }
+            get { return ClientMessageType.CJOINROOM; }
         }
 
         public override void Handle()
@@ -26,7 +23,7 @@ namespace Assets.Src.Net.Envelopes.Client
 
         public override ClientEnvelope Create(object packet)
         {
-            var envelope = new CJoinRoomEnvelope { Packet = packet };
+            var envelope = new CJoinRoomEnvelope {Packet = packet};
             return envelope;
         }
     }

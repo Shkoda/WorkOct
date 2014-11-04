@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OffsetScroller : MonoBehaviour {
-
+public class OffsetScroller : MonoBehaviour
+{
     public float scrollSpeed;
     private Vector2 savedOffset;
 
-    void Start()
+    private void Start()
     {
         savedOffset = renderer.sharedMaterial.GetTextureOffset("_MainTex");
     }
 
-    void Update()
+    private void Update()
     {
 //        float y = Mathf.Repeat(Time.time * scrollSpeed, 1);
 //        Vector2 offset = new Vector2(savedOffset.x, y);
 
-                float x = Mathf.Repeat(Time.time * scrollSpeed, 1);
-                Vector2 offset = new Vector2(x, savedOffset.y);
+        float x = Mathf.Repeat(Time.time*scrollSpeed, 1);
+        Vector2 offset = new Vector2(x, savedOffset.y);
         renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         renderer.sharedMaterial.SetTextureOffset("_MainTex", savedOffset);
     }

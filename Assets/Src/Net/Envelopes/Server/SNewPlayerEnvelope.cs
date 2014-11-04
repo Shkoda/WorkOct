@@ -8,20 +8,16 @@ using WorkOct.Protocol;
 
 namespace Assets.Src.Net.Envelopes.Server
 {
-    class SNewPlayerEnvelope: ServerEnvelope
+    internal class SNewPlayerEnvelope : ServerEnvelope
     {
         public override ServerMessageType PacketType
         {
-            get
-            {
-                return ServerMessageType.SNEWPLAYER;
-            }
+            get { return ServerMessageType.SNEWPLAYER; }
         }
 
         public SNewPlayerEnvelope(string login)
         {
             Packet = new SNewPlayer() {name = login};
-
-        }       
+        }
     }
 }

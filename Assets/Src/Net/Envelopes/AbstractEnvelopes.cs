@@ -26,7 +26,10 @@ namespace WorkOct.Net.Envelopes
         public object Packet { get; set; }
         public abstract ServerMessageType PacketType { get; }
 
-        public virtual bool IsPollRequest { get { return false; } }
+        public virtual bool IsPollRequest
+        {
+            get { return false; }
+        }
 
         /// <summary>
         /// Send the packet over to NetworkHandler
@@ -34,7 +37,7 @@ namespace WorkOct.Net.Envelopes
         public void Send()
         {
             Debugger.Log(string.Format(" << Enqueuing Http envelope: {0}", GetType()));
-        
+
             NetworkHandler.Send(this);
         }
     }

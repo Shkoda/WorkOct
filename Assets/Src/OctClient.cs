@@ -10,8 +10,6 @@ using UnityEngine;
 
 public class OctClient : MonoBehaviour
 {
-
-
     private static OctClient _instance;
 
     private readonly GUIStyle style = new GUIStyle(GUIStyle.none);

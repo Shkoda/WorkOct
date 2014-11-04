@@ -217,7 +217,7 @@ namespace Assets.Src.Net
             try
             {
                 Debugger.Log("TryConnect " + address + " : " + port);
-           IPAddress ipadr = IPAddress.Any;
+                IPAddress ipadr = IPAddress.Any;
 
                 IPAddress.TryParse(address, out ipadr);
 

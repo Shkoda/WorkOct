@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-
-
 using UnityEngine;
 
 public partial class Debugger : MonoBehaviour
@@ -27,10 +25,7 @@ public partial class Debugger : MonoBehaviour
 
     public static bool InterceptDebugMessages
     {
-        get
-        {
-            return interceptDebugMessages;
-        }
+        get { return interceptDebugMessages; }
         set
         {
             interceptDebugMessages = value;
@@ -88,7 +83,7 @@ public partial class Debugger : MonoBehaviour
 
         WriteToDebugger = true;
 
-        SetFilter((DebugType)0x7FFFFFFF);
+        SetFilter((DebugType) 0x7FFFFFFF);
     }
 
     #region Updates, GUI
@@ -100,8 +95,8 @@ public partial class Debugger : MonoBehaviour
 
         this.windowRect = new Rect(0, 0, Screen.width, 0);
 
-        this.ButtonHeight = Screen.height * 0.04f;
-        this.ButtonWidth = this.ButtonHeight * 3;
+        this.ButtonHeight = Screen.height*0.04f;
+        this.ButtonWidth = this.ButtonHeight*3;
 
         this.buttonYPosition = Screen.height - this.ButtonHeight;
 
@@ -155,12 +150,12 @@ public partial class Debugger : MonoBehaviour
         if (this.isDragging && Input.GetMouseButtonUp(0)) // mouse
         {
             this.isDragging = false;
-            if (Input.mousePosition.y > Screen.height * 0.1 && Input.mousePosition.y < Screen.height * 0.94)
+            if (Input.mousePosition.y > Screen.height*0.1 && Input.mousePosition.y < Screen.height*0.94)
             {
                 this.isFixed = true;
                 this.isMaximized = false;
             }
-            else if (Input.mousePosition.y > Screen.height * 0.1)
+            else if (Input.mousePosition.y > Screen.height*0.1)
             {
                 this.isMaximizing = true;
             }
@@ -174,12 +169,12 @@ public partial class Debugger : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             this.isDragging = false;
-            if (touch.position.y > Screen.height * 0.1 && touch.position.x < Screen.height * 0.9)
+            if (touch.position.y > Screen.height*0.1 && touch.position.x < Screen.height*0.9)
             {
                 this.isFixed = true;
                 this.isMaximized = false;
             }
-            else if (touch.position.y > Screen.height * 0.1)
+            else if (touch.position.y > Screen.height*0.1)
             {
                 this.isMaximizing = true;
             }
@@ -259,6 +254,7 @@ public partial class Debugger : MonoBehaviour
     }
 
     private string sendLogsName = "Send Logs";
+
     private void OnGUI()
     {
 #if UNITY_EDITOR
@@ -281,7 +277,7 @@ public partial class Debugger : MonoBehaviour
             this.buttonStyle.fontSize = fontSize;
             this.textStyle.fontSize = fontSize;
 
-            textHeight = (this.textStyle.fontSize == 0 ? 25f : this.textStyle.fontSize * 1.5f);
+            textHeight = (this.textStyle.fontSize == 0 ? 25f : this.textStyle.fontSize*1.5f);
             textHeightWithMargin = textHeight + Margin;
 
             this.textStyle.alignment = TextAnchor.MiddleLeft;
@@ -290,8 +286,8 @@ public partial class Debugger : MonoBehaviour
         if (
             GUI.RepeatButton(
                 new Rect(
-                    Screen.width * 0.5f - this.ButtonWidth * 0.5f,
-                    this.buttonYPosition + 2 * Margin,
+                    Screen.width*0.5f - this.ButtonWidth*0.5f,
+                    this.buttonYPosition + 2*Margin,
                     this.ButtonWidth,
                     this.ButtonHeight),
                 new GUIContent(this.ButtonText),
@@ -369,7 +365,11 @@ public partial class Debugger : MonoBehaviour
             Directory.CreateDirectory(@"C:\Logs\Slototherapy\");
         }
 
-        using (var file = new FileStream(@"C:\Logs\Slototherapy\" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + "_" + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".log", FileMode.Create))
+        using (
+            var file =
+                new FileStream(
+                    @"C:\Logs\Slototherapy\" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year +
+                    "_" + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".log", FileMode.Create))
         {
             using (var writer = new StreamWriter(file))
             {
@@ -409,14 +409,14 @@ public partial class Debugger : MonoBehaviour
         //var textHeight = textStyle.fontSize == 0 ? 25f : textStyle.fontSize * 1.5f;
         const float windowHeaderHeight = 17f;
 
-        float scrollViewHeight = this.windowRect.height - Margin * 2 - windowHeaderHeight - this.ButtonHeight;
+        float scrollViewHeight = this.windowRect.height - Margin*2 - windowHeaderHeight - this.ButtonHeight;
 
         if (scrollViewHeight > 0)
         {
             this.scrollViewVector =
                 GUI.BeginScrollView(
                     new Rect(
-                        Margin * 2,
+                        Margin*2,
                         this.ButtonHeight + windowHeaderHeight + Margin,
                         this.windowRect.width - 6,
                         scrollViewHeight),
@@ -446,7 +446,7 @@ public partial class Debugger : MonoBehaviour
             GUI.EndScrollView();
 
             if (GUI.Button(
-                new Rect(2 * Margin, 2 * Margin, this.ButtonWidth, this.ButtonHeight),
+                new Rect(2*Margin, 2*Margin, this.ButtonWidth, this.ButtonHeight),
                 new GUIContent("clear"),
                 this.buttonStyle))
             {
@@ -454,7 +454,7 @@ public partial class Debugger : MonoBehaviour
             }
 
             if (GUI.Button(
-                new Rect(3 * Margin + this.ButtonWidth, 2 * Margin, this.ButtonWidth, this.ButtonHeight),
+                new Rect(3*Margin + this.ButtonWidth, 2*Margin, this.ButtonWidth, this.ButtonHeight),
                 new GUIContent("console"),
                 this.buttonStyle))
             {
@@ -508,7 +508,7 @@ public partial class Debugger : MonoBehaviour
         var msg = new ConsoleMessage(
             message,
             isResponse,
-            (message.Split('\n').Length) * lineHeight + tableHeight,
+            (message.Split('\n').Length)*lineHeight + tableHeight,
             _totalTextHeight + Margin);
 
         if (WriteToDebugger)
@@ -578,7 +578,7 @@ public partial class Debugger : MonoBehaviour
             watchId,
             msg,
             debugType,
-            (msg.Split('\n').Length) * lineHeight + tableHeight,
+            (msg.Split('\n').Length)*lineHeight + tableHeight,
             _totalTextHeight + Margin);
 
         //        var index = logList.IndexOf(message);
@@ -597,7 +597,7 @@ public partial class Debugger : MonoBehaviour
                 lockAcquired = Monitor.TryEnter(logList);
                 if (lockAcquired)
                 {
-                    ((WatchMessage)logList[index]).UpdateMessage(msg);
+                    ((WatchMessage) logList[index]).UpdateMessage(msg);
                 }
             }
             finally
@@ -642,7 +642,7 @@ public partial class Debugger : MonoBehaviour
                     lockAcquired = Monitor.TryEnter(logListFiltered);
                     if (lockAcquired)
                     {
-                        ((WatchMessage)logListFiltered[index2]).UpdateMessage(msg);
+                        ((WatchMessage) logListFiltered[index2]).UpdateMessage(msg);
                     }
                 }
                 finally
@@ -686,7 +686,7 @@ public partial class Debugger : MonoBehaviour
         {
 //            if (ThreadManager.IsRunningInMainThread)
 //            {
-                Debug.Log(message + stackTrace);
+            Debug.Log(message + stackTrace);
 //            }
 //            else
 //            {
@@ -715,8 +715,8 @@ public partial class Debugger : MonoBehaviour
         var msg = new Message(
             message,
             debugType,
-            (message.Split('\n').Length) * lineHeight + tableHeight,
-            _totalTextHeight + 2 * Margin);
+            (message.Split('\n').Length)*lineHeight + tableHeight,
+            _totalTextHeight + 2*Margin);
 
         if (WriteToDebugger)
         {

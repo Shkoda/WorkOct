@@ -83,7 +83,7 @@ namespace Assets.Src.Net.Handler
 
             //start the thread that is sending packets to server
             serverQueueProcessing = true;
-            serverSendingThread = new Thread(ProcessingServerQueue) { IsBackground = true };
+            serverSendingThread = new Thread(ProcessingServerQueue) {IsBackground = true};
             serverSendingThread.Start();
 
             acceptIncomingPackets = true;
@@ -91,7 +91,7 @@ namespace Assets.Src.Net.Handler
 
             //throws
             httpNetwork = new TcpNetworkInterface();
-            Debugger.Log("httpNetwork == "+httpNetwork);
+            Debugger.Log("httpNetwork == " + httpNetwork);
 
 
             httpNetwork.Connect(address, port, secure);

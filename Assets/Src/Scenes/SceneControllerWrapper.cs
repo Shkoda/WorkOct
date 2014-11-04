@@ -19,10 +19,12 @@ namespace Assets.Src.Scenes
         {
             _controller.Update();
         }
+
         public void Start()
         {
             _controller.Start();
         }
+
         public void Awake()
         {
             if (_controller != null)
@@ -34,10 +36,12 @@ namespace Assets.Src.Scenes
                 Debug.LogWarning("SceneControllerWrapper: Controller not set");
             }
         }
+
         public void LateUpdate()
         {
             _controller.LateUpdate();
         }
+
         public void OnDestroy()
         {
             _controller.OnDestroy();
