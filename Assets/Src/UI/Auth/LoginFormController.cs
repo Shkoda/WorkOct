@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class LoginFormController : MonoBehaviour
 {
-    public Canvas LoginCanvas;
+//    public Canvas LoginCanvas;
+    public GameObject LoginPanel;
     public InputField LoginInput;
     public Button LoginButton;
     public Animator LoginWindowAnimator;
@@ -13,10 +14,16 @@ public class LoginFormController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        LoginButton.interactable = false;
     }
 
     // Update is called once per frame
     private void Update()
+    {
+      UpdateLoginButtonAvailability();
+    }
+
+    public void UpdateLoginButtonAvailability()
     {
         LoginButton.interactable = LoginInput.text != null && LoginInput.text.text.Length > 0;
     }
@@ -31,10 +38,10 @@ public class LoginFormController : MonoBehaviour
         LoginWindowAnimator.SetBool("LoggedIn", true);
     }
 
-    public void hideLoginForm()
+    public void DisableLoginForm()
     {
         Debugger.Log("hiding login form...");
-        LoginCanvas.enabled = false;
+        LoginPanel.SetActive(false);
     }
 
     public void AaaOoo()

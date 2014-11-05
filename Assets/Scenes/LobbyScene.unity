@@ -420,7 +420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329645063}
+      - m_Target: {fileID: 1688845281}
         m_MethodName: sendLoginToServer
         m_Mode: 1
         m_Arguments:
@@ -886,8 +886,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_HighlightedColor: {r: .926470578, g: .926470578, b: .926470578, a: .698039234}
+    m_PressedColor: {r: .926470578, g: .926470578, b: .926470578, a: .698039234}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
     m_ColorMultiplier: 2
     m_FadeDuration: .100000001
@@ -949,14 +949,14 @@ GameObject:
   - 224: {fileID: 751788022}
   - 222: {fileID: 751788021}
   - 114: {fileID: 751788020}
-  - 114: {fileID: 751788023}
+  - 95: {fileID: 751788024}
   m_Layer: 5
   m_Name: RoomListPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &751788020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,20 +1005,21 @@ RectTransform:
   m_AnchoredPosition: {x: 458, y: -344.5}
   m_SizeDelta: {x: 748, y: 450.200012}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &751788023
-MonoBehaviour:
+--- !u!95 &751788024
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 751788019}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75961580d09b7dc42b11e2cd1845a777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParentPane: {fileID: 607372652}
-  RoomInfoPrefab: {fileID: 100016, guid: edffab0a26dbfc14b9fca40f47323a5a, type: 2}
-  FirstPanelPositionObject: {fileID: 156855432}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1662b3fb667fb034994046d84ae5c75a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &758482434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1329645059
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1908,7 +1909,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 14}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1329645060
@@ -1964,7 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cdb11e5ca5597f4e83860b292206354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoginCanvas: {fileID: 1688845278}
+  LoginPanel: {fileID: 1329645058}
   LoginInput: {fileID: 1580921379}
   LoginButton: {fileID: 270864862}
   LoginWindowAnimator: {fileID: 1329645062}
@@ -2118,7 +2119,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688845281}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2323,6 +2324,8 @@ GameObject:
   - 223: {fileID: 1688845278}
   - 114: {fileID: 1688845277}
   - 114: {fileID: 1688845276}
+  - 114: {fileID: 1688845281}
+  - 114: {fileID: 1688845280}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2404,6 +2407,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1688845280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1688845275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75961580d09b7dc42b11e2cd1845a777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomListPanel: {fileID: 0}
+  ParentPane: {fileID: 607372652}
+  RoomInfoPrefab: {fileID: 100016, guid: edffab0a26dbfc14b9fca40f47323a5a, type: 2}
+  FirstPanelPositionObject: {fileID: 156855432}
+--- !u!114 &1688845281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1688845275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdb11e5ca5597f4e83860b292206354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginPanel: {fileID: 1329645058}
+  LoginInput: {fileID: 1580921379}
+  LoginButton: {fileID: 270864862}
+  LoginWindowAnimator: {fileID: 1329645062}
 --- !u!1 &1723850825
 GameObject:
   m_ObjectHideFlags: 0

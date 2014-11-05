@@ -8,6 +8,7 @@ using Random = System.Random;
 
 public class RoomListController : MonoBehaviour
 {
+    public GameObject RoomListPanel;
     public GameObject ParentPane;
     public GameObject RoomInfoPrefab;
     public RectTransform FirstPanelPositionObject;
@@ -15,11 +16,15 @@ public class RoomListController : MonoBehaviour
     private float TopX, TopY, TopZ;
     private float InfoHeight, OffsetBetweenInfos;
 
+    public void SetRoomPanelEnabled(bool enabled)
+    {
+        RoomListPanel.SetActive(enabled);
+    }
 
     // Use this for initialization
     private void Start()
     {
-        TopX = 0;
+        TopX = 5;
         TopY = -12;
         TopZ = 0;
 
@@ -27,6 +32,8 @@ public class RoomListController : MonoBehaviour
         OffsetBetweenInfos = 5;
         InstantinateTestRoomList();
     }
+
+
 
 
     // Update is called once per frame
