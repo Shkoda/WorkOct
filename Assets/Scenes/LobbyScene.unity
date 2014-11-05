@@ -1969,6 +1969,7 @@ MonoBehaviour:
   LoginInput: {fileID: 1580921379}
   LoginButton: {fileID: 270864862}
   LoginWindowAnimator: {fileID: 1329645062}
+  RoomListController: {fileID: 0}
 --- !u!1 &1475346952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2438,7 @@ MonoBehaviour:
   LoginInput: {fileID: 1580921379}
   LoginButton: {fileID: 270864862}
   LoginWindowAnimator: {fileID: 1329645062}
+  RoomListController: {fileID: 0}
 --- !u!1 &1723850825
 GameObject:
   m_ObjectHideFlags: 0

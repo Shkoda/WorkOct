@@ -11,6 +11,8 @@ public class LoginFormController : MonoBehaviour
     public Button LoginButton;
     public Animator LoginWindowAnimator;
 
+    public RoomListController RoomListController;
+
     // Use this for initialization
     private void Start()
     {
@@ -42,9 +44,8 @@ public class LoginFormController : MonoBehaviour
     {
         Debugger.Log("hiding login form...");
         LoginPanel.SetActive(false);
+        RoomListController.SetRoomPanelEnabled(true);
     }
 
-    public void AaaOoo()
-    {
-    }
+ 
 }

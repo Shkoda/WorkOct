@@ -19,6 +19,7 @@ public class RoomListController : MonoBehaviour
     public void SetRoomPanelEnabled(bool enabled)
     {
         RoomListPanel.SetActive(enabled);
+        RoomListPanel.GetComponent<Animator>().SetBool("ShowRoomList", enabled);
     }
 
     // Use this for initialization
