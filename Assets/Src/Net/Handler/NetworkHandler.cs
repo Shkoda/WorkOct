@@ -243,6 +243,8 @@ namespace Assets.Src.Net.Handler
                             break;
                         }
 
+                        Debugger.Log(" << "+envelope.GetType());
+
                         //remove sent packet from queue
                         serverQueue.Dequeue();
                         if (serverQueue.Count == 0)

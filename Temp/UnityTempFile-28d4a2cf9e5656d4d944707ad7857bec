@@ -46,6 +46,7 @@
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_PRO_LICENSE
 Assets/Src/Battle/BattleGame.cs
+Assets/Src/Battle/Rooms/RoomManager.cs
 Assets/Src/Debug/Console.cs
 Assets/Src/Debug/DebugPanel.cs
 Assets/Src/Debug/Debugger.cs
@@ -61,6 +62,7 @@ Assets/Src/Net/Envelopes/Client/CJoinRoomEnvelope.cs
 Assets/Src/Net/Envelopes/Client/CLeaveRoomEnvelope.cs
 Assets/Src/Net/Envelopes/Client/CNewPlayerEnvelope.cs
 Assets/Src/Net/Envelopes/Client/CPingEnvelope.cs
+Assets/Src/Net/Envelopes/Server/SGetRoomsEnvelope.cs
 Assets/Src/Net/Envelopes/Server/SNewPlayerEnvelope.cs
 Assets/Src/Net/Envelopes/Server/SPingEnvelope.cs
 Assets/Src/Net/Handler/NetworkHandler.cs

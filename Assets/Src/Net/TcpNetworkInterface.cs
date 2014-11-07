@@ -404,7 +404,7 @@ namespace Assets.Src.Net
                         }
 
                         Debugger.Log(
-                            string.Format("{0}(0x{1}) received", ((ClientMessageType) messageType),
+                            string.Format(" >> {0}(0x{1}) received", ((ClientMessageType) messageType),
                                 messageType.ToString("X")), DebugType.NetworkInterface);
                         try
                         {

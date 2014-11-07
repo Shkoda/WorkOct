@@ -36,7 +36,7 @@ namespace WorkOct.Net.Envelopes
         /// </summary>
         public void Send()
         {
-            Debugger.Log(string.Format(" << Enqueuing Http envelope: {0}", GetType()));
+            Debugger.Log(string.Format(" Enqueue {0}", GetType()));
 
             NetworkHandler.Send(this);
         }

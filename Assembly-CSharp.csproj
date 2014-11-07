@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Src\Battle\BattleGame.cs" />
+     <Compile Include="Assets\Src\Battle\Rooms\RoomManager.cs" />
      <Compile Include="Assets\Src\Debug\Console.cs" />
      <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
      <Compile Include="Assets\Src\Debug\Debugger.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Src\Net\Envelopes\Client\CLeaveRoomEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Client\CNewPlayerEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Client\CPingEnvelope.cs" />
+     <Compile Include="Assets\Src\Net\Envelopes\Server\SGetRoomsEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Server\SNewPlayerEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Envelopes\Server\SPingEnvelope.cs" />
      <Compile Include="Assets\Src\Net\Handler\NetworkHandler.cs" />

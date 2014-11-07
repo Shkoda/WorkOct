@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Sockets;
 using UnityEngine;
 using System.Collections;
@@ -15,6 +17,9 @@ public class RoomListController : MonoBehaviour
 
     private float TopX, TopY, TopZ;
     private float InfoHeight, OffsetBetweenInfos;
+    private float DefaultRoomPanelHeight;
+
+    private Dictionary<int, GameObject> InstantinatedRooms = new Dictionary<int, GameObject>();
 
     public void SetRoomPanelEnabled(bool enabled)
     {
@@ -25,49 +30,62 @@ public class RoomListController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+//        TopX = 5;
+//        TopY = -12;
+//        TopZ = 0;
+//
+//        InfoHeight = RoomInfoPrefab.GetComponent<RectTransform>().sizeDelta.y;
+//        OffsetBetweenInfos = 5;
+//        DefaultRoomPanelHeight = 331;
+
+    }
+
+    private void Awake()
+    {
         TopX = 5;
         TopY = -12;
         TopZ = 0;
 
         InfoHeight = RoomInfoPrefab.GetComponent<RectTransform>().sizeDelta.y;
         OffsetBetweenInfos = 5;
-        InstantinateTestRoomList();
+        DefaultRoomPanelHeight = 331;
     }
-
-
 
 
     // Update is called once per frame
     private void Update()
     {
+        destroyInstantinatedRooms();
+        List<RoomInfo> rooms = OctClient.CurrentGame.RoomManager.getRooms().Values.ToList();
+        InstantinateRoomList(rooms);
     }
 
-    public void InstantinateTestRoomList()
+
+    private void destroyInstantinatedRooms()
     {
-        int roomNumber = 10;
+        InstantinatedRooms.Values.ToList().ForEach(Destroy);
+        InstantinatedRooms.Clear();
+    }
+
+
+    public void InstantinateRoomList(List<RoomInfo> rooms)
+    {
+        int roomNumber = rooms.Count;
 
         UpdateParentPanelSize(roomNumber);
 
-        Random random = new Random();
-
-
         for (int i = 0; i < roomNumber; i++)
         {
-            int roomId = i + 1;
-            int playersInside = random.Next(5);
-            int capacity = playersInside + random.Next(1, 5);
-            string status = "Waiting for " + (capacity - playersInside) + " players";
-
-
-            AddRoomInfo(AnchoredPosition(i), roomId, playersInside, capacity, status);
+            AddRoomInfo(AnchoredPosition(i), rooms[i]);
         }
     }
 
     private void UpdateParentPanelSize(int roomNumber)
     {
         var parentRectTransform = ParentPane.GetComponent<RectTransform>();
+        float height = Math.Max(DefaultRoomPanelHeight, roomNumber*(InfoHeight + OffsetBetweenInfos) - TopY);
         parentRectTransform.sizeDelta = new Vector2(parentRectTransform.sizeDelta.x,
-            roomNumber*(InfoHeight + OffsetBetweenInfos)-TopY);
+          height);
     }
 
     private Vector3 AnchoredPosition(int infoNumber)
@@ -78,7 +96,7 @@ public class RoomListController : MonoBehaviour
         return new Vector3(x, y, z);
     }
 
-    private void AddRoomInfo(Vector3 anchoredPosition, int roomId, int playersInside, int capacity, string status)
+    private void AddRoomInfo(Vector3 anchoredPosition, RoomInfo roomInfo)
     {
         var info = (GameObject) Instantiate(RoomInfoPrefab);
 
@@ -87,8 +105,10 @@ public class RoomListController : MonoBehaviour
         rectTransform.anchoredPosition = anchoredPosition;
 
         var infoHolder = info.GetComponent<RoomInfoHolder>();
-        infoHolder.RoomNameField.text = "#" + roomId;
-        infoHolder.InsideField.text = playersInside + "/" + capacity;
-        infoHolder.StatusField.text = status;
+        infoHolder.RoomNameField.text = "#" + roomInfo.id;
+        infoHolder.InsideField.text = roomInfo.players + "/" + roomInfo.capacity;
+        infoHolder.StatusField.text = roomInfo.state.ToString();
+
+        InstantinatedRooms.Add(roomInfo.id, info);
     }
 }
