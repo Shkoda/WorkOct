@@ -8,6 +8,6 @@ namespace Assets.Src.Net
     internal class ConnectionConfig
     {
         public static readonly string Server = "192.168.2.80";
-        public static readonly int Port = 15499;
+        public static readonly int Port = 15005;
     }
 }

@@ -10,6 +10,7 @@ namespace Assets.Src.Net.Handler
 {
     internal class NetworkHandler
     {
+
         /// <summary>
         ///     When Reset it blocks processing of server queue, i.e. does not allow packets to be send over network
         /// </summary>
@@ -74,7 +75,7 @@ namespace Assets.Src.Net.Handler
 
         public static void ConnectAndSendVersion(string address, int port, bool secure)
         {
-            Debugger.Log(string.Format("******* connecting to server on {0}:{1}...", address, port));
+            Debugger.Log(string.Format("Connecting to server on {0}:{1}...", address, port));
             if (State != NetworkState.NotConnected)
             {
                 Debugger.Log("Already connected!", DebugType.NetworkHandler);
@@ -96,7 +97,6 @@ namespace Assets.Src.Net.Handler
 
             httpNetwork.Connect(address, port, secure);
 
-//            new SEnterGameEnvelope().Send();
             new SPingEnvelope().Send();
         }
 
@@ -128,7 +128,7 @@ namespace Assets.Src.Net.Handler
         {
             if (acceptIncomingPackets)
             {
-                Debugger.Log("NetworkHandler: " + envelope.PacketType + " received");
+//                Debugger.Log(" >> " + envelope.GetType().Name);
 
                 lock (clientQueue)
                 {
@@ -219,20 +219,6 @@ namespace Assets.Src.Net.Handler
                     {
                         ServerEnvelope envelope = serverQueue.Peek();
 
-                        //double check
-                        //                        ServerMessageType packetType = envelope.PacketType;
-                        //                        if (packetType == ServerMessageType.SDEBUGMESSAGE)
-                        //                        {
-                        //                            httpNetwork.SendEnvelope(envelope);
-                        //                            serverQueue.Dequeue();
-                        //                            continue;
-                        //                        }
-                        //
-                        //                        if (packetType != ServerMessageType.SDEBUGMESSAGE)
-                        //                        {
-                        //                            //                                Debugger.Log("Sending envelope: " + envelope.GetType(), DebugType.NetworkHandler);
-                        //                        }
-
                         bool result = httpNetwork.SendEnvelope(envelope);
 
                         //if something goes wrong we try to send it later
@@ -243,7 +229,7 @@ namespace Assets.Src.Net.Handler
                             break;
                         }
 
-                        Debugger.Log(" << "+envelope.GetType());
+                        Debugger.Log(" << "+envelope.GetType().Name);
 
                         //remove sent packet from queue
                         serverQueue.Dequeue();

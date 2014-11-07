@@ -55,9 +55,15 @@ public class RoomListController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        destroyInstantinatedRooms();
-        List<RoomInfo> rooms = OctClient.CurrentGame.RoomManager.getRooms().Values.ToList();
-        InstantinateRoomList(rooms);
+        RoomManager roomManager = OctClient.CurrentGame.RoomManager;
+        if (roomManager.RoomsUpdated)
+        {
+            roomManager.RoomsUpdated = false;
+            destroyInstantinatedRooms();
+            List<RoomInfo> rooms = roomManager.getRooms().Values.ToList();
+            InstantinateRoomList(rooms);
+        }
+      
     }
 
 

@@ -8,7 +8,13 @@ using WorkOct.Protocol;
 public class RoomManager
 {
     private Dictionary<int, RoomInfo> rooms = new Dictionary<int, RoomInfo>();
+    private bool roomsUpdated = false;
 
+    public bool RoomsUpdated
+    {
+        get { return roomsUpdated; }
+        set { roomsUpdated = value; }
+    }
 
     public RoomManager()
     {
@@ -19,6 +25,7 @@ public class RoomManager
     public void setRooms(List<RoomInfo> list)
     {
         Debugger.Log("Setting new room list");
+        roomsUpdated = true;
         rooms = list.ToDictionary(room => room.id, room => room);
         list.ForEach(room => Debugger.Log(room));
     }
@@ -27,4 +34,6 @@ public class RoomManager
     {
         return rooms;
     }
+
+
 }

@@ -176,17 +176,22 @@ public class OctClient : MonoBehaviour
 
     public static void ConnectGameToServer()
     {
+        Debugger.Log("OctClient.ConnectToGameServer()");
         if (!CheckInstance())
         {
+            Debugger.Log("OctClient.ConnectToGameServer() CheckInstance == false");
             return;
         }
 
-
+        Debugger.Log("OctClient.ConnectToGameServer() CheckInstance == true");
         NetworkHandler.ConnectAndSendVersion(ConnectionConfig.Server, ConnectionConfig.Port, false);
 
         NetworkHandler.LostConnection += NetworkHandler_LostConnection;
         NetworkHandler.ServerError += NetworkHandler_ServerError;
         _instance.isServerSelected = true;
+
+
+        Debugger.Log("OctClient.ConnectToGameServer() is done");
     }
 
     /// <summary>

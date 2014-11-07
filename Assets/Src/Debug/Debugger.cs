@@ -684,25 +684,8 @@ public partial class Debugger : MonoBehaviour
 
         if (writeToUnityConsole || WriteDebugToConsole)
         {
-//            if (ThreadManager.IsRunningInMainThread)
-//            {
             Debug.Log(message + stackTrace);
-//            }
-//            else
-//            {
-//                MainThread.AddOnce(nothing => Debug.Log(message.ToString() + stackTrace));
-//            }
         }
-
-//        if (sendToServer || WriteDebugToServer)
-//        {
-//            new SDebugMessageEnvelope(
-//                string.Format(
-//                    "D.Log(). Message: {0}.\r\nStack trace: {1}.\r\nUTC time: {2}\r\n\r\n",
-//                    message,
-//                    stackTrace,
-//                    DateTime.UtcNow)).Send();
-//        }
     }
 
     private static void _Log(string message, DebugType debugType)

@@ -126,6 +126,7 @@ namespace Assets.Src.Net
         {
             try
             {
+
                 SendMessage(envelope.Packet, envelope.PacketType,
                     typesList.ServerPacketTypesArray[(int) envelope.PacketType]);
             }
@@ -162,7 +163,7 @@ namespace Assets.Src.Net
             serverAddress = address;
             serverPort = port;
             //return;
-//            client = new TcpClient();
+            client = new TcpClient();
 
             isReceiving = true;
 
@@ -341,43 +342,7 @@ namespace Assets.Src.Net
                             cPacket = serializer.DeserializeWithLengthPrefix(networkStream, null,
                                 typesList.ClientPacketTypesArray[messageType],
                                 PrefixStyle.Fixed32BigEndian, 0);
-#if OUTPUT_PACKET
-                        }
-                        else
-                        {
-                            var length = 0;
-                            var reader = new BinaryReader(networkStream);
-                            length = (reader.ReadByte() << 24) | (reader.ReadByte() << 16) | (reader.ReadByte() << 8) |
-                                     (reader.ReadByte());
 
-                            Debugger.Log(string.Format("packet length = {0}", length), writeToUnityConsole: true);
-                            var buffer = new byte[length + 4];
-                            var bytesReceived = networkStream.Read(buffer, 4, length);
-                            Debugger.Log(string.Format("received length = {0}", bytesReceived), writeToUnityConsole: true);
-
-                            buffer[0] = (byte) (0xFF & (length >> 24));
-                            buffer[1] = (byte) (0xFF & (length >> 16));
-                            buffer[2] = (byte) (0xFF & (length >> 8));
-                            buffer[3] = (byte)(0xFF & length);
-
-                            string output = "";
-                            for (int i = 0; i < buffer.Length; i++)
-                            {
-                                output += "0x" + buffer[i].ToString("X") + ", ";
-                            }
-
-                            Debugger.Log(string.Format("received, bytes = {0}", output), writeToUnityConsole: true);
-
-                            using (var memoryStream = new MemoryStream(buffer))
-                            {
-                                cPacket = serializer.DeserializeWithLengthPrefix(memoryStream, null,
-                                                                                                 typesList.ClientPacketTypesArray[messageType],
-                                                                                                 PrefixStyle.Fixed32BigEndian, 0);
-                            }
-
-
-                        }
-#endif
                         }
                         catch (Exception e)
                         {
@@ -404,7 +369,7 @@ namespace Assets.Src.Net
                         }
 
                         Debugger.Log(
-                            string.Format(" >> {0}(0x{1}) received", ((ClientMessageType) messageType),
+                            string.Format(" >> {0}(0x{1}) ", ((ClientMessageType) messageType),
                                 messageType.ToString("X")), DebugType.NetworkInterface);
                         try
                         {
