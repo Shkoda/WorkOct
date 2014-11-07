@@ -25,9 +25,9 @@ public class RoomManager
     public void setRooms(List<RoomInfo> list)
     {
         Debugger.Log("Setting new room list");
-        roomsUpdated = true;
+        RoomsUpdated = true;
         rooms = list.ToDictionary(room => room.id, room => room);
-        list.ForEach(room => Debugger.Log(room));
+        list.ForEach(room => Debugger.Log("RoomManager.setRooms() room " + room.id));
     }
 
     public Dictionary<int, RoomInfo> getRooms()
