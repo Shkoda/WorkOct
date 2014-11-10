@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Src\Battle\BattleGame.cs" />
+     <Compile Include="Assets\Src\Battle\Game\PanzerController.cs" />
      <Compile Include="Assets\Src\Battle\Rooms\RoomManager.cs" />
      <Compile Include="Assets\Src\Debug\Console.cs" />
      <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets\Src\Threading\ThreadManager.cs" />
      <Compile Include="Assets\Src\Tools\UserDataPermanentStorage.cs" />
      <Compile Include="Assets\Src\UI\Auth\LoginFormController.cs" />
+     <Compile Include="Assets\Src\UI\Room\RoomDetailsController.cs" />
      <Compile Include="Assets\Src\UI\Room\RoomInfoHolder.cs" />
      <Compile Include="Assets\Src\UI\Room\RoomListController.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />

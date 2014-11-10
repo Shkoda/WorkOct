@@ -30,19 +30,10 @@ public class RoomListController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        Debugger.Log("RoomListController.Start()");
-//        TopX = 5;
-//        TopY = -12;
-//        TopZ = 0;
-//
-//        InfoHeight = RoomInfoPrefab.GetComponent<RectTransform>().sizeDelta.y;
-//        OffsetBetweenInfos = 5;
-//        DefaultRoomPanelHeight = 331;
     }
 
     private void Awake()
     {
-        Debugger.Log("RoomListController.Awake()");
         TopX = 5;
         TopY = -12;
         TopZ = 0;
@@ -56,32 +47,30 @@ public class RoomListController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debugger.Log("RoomListController.Update()");
-       RefreshRoomList();
+        RefreshRoomList();
     }
 
     public void RefreshRoomList()
-    {    
+    {
         RoomManager roomManager = OctClient.CurrentGame.RoomManager;
-        Debugger.Log("RoomListController.RefreshRoomList() roomManager == "+roomManager);
-        Debugger.Log("RoomListController.RefreshRoomList() roomManager.RoomsUpdated == "+roomManager.RoomsUpdated);
+        Debugger.Log("RoomListController.RefreshRoomList() roomManager == " + roomManager);
+        Debugger.Log("RoomListController.RefreshRoomList() roomManager.RoomsUpdated == " + roomManager.RoomsUpdated);
         List<RoomInfo> rooms = roomManager.getRooms().Values.ToList();
 
-        rooms.ForEach(room => Debugger.Log("RoomListController.RefreshRoomList() room "+room.id));
+        rooms.ForEach(room => Debugger.Log("RoomListController.RefreshRoomList() room " + room.id));
 
         if (roomManager.RoomsUpdated)
         {
             roomManager.RoomsUpdated = false;
-            destroyInstantinatedRooms();
-         
+            DestroyInstantinatedRooms();
+
             Debugger.Log("Refreshing room list..." + rooms);
             InstantinateRoomList(rooms);
         }
-       
     }
 
 
-    private void destroyInstantinatedRooms()
+    private void DestroyInstantinatedRooms()
     {
         InstantinatedRooms.Values.ToList().ForEach(Destroy);
         InstantinatedRooms.Clear();
@@ -91,9 +80,7 @@ public class RoomListController : MonoBehaviour
     public void InstantinateRoomList(List<RoomInfo> rooms)
     {
         int roomNumber = rooms.Count;
-
         UpdateParentPanelSize(roomNumber);
-
         for (int i = 0; i < roomNumber; i++)
         {
             AddRoomInfo(AnchoredPosition(i), rooms[i]);
@@ -118,7 +105,7 @@ public class RoomListController : MonoBehaviour
 
     private void AddRoomInfo(Vector3 anchoredPosition, RoomInfo roomInfo)
     {
-        Debugger.Log("RoomListController.AddRoomInfo() room "+roomInfo.id);
+        Debugger.Log("RoomListController.AddRoomInfo() room " + roomInfo.id);
         var info = (GameObject) Instantiate(RoomInfoPrefab);
 
         var rectTransform = info.GetComponent<RectTransform>();
@@ -133,4 +120,6 @@ public class RoomListController : MonoBehaviour
         info.SetActive(true);
         InstantinatedRooms.Add(roomInfo.id, info);
     }
+
+    
 }

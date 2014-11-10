@@ -17,4 +17,9 @@ public class RoomInfoHolder : MonoBehaviour
     private void Update()
     {
     }
+
+    public void JoinRoom()
+    {
+        
+    }
 }
