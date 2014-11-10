@@ -3,57 +3,82 @@ using System.Collections;
 
 public class PanzerController : MonoBehaviour
 {
-    public float MaxSpeed = 10;
-    public float TurnSpeed = 5;
+    public float Speed;
 
-//    private Direction PreviousDirection;
+    private Direction PreviousDirection;
+    private bool ShouldMove;
 
     // Use this for initialization
     private void Start()
     {
-//        PreviousDirection = Direction.Up;
+        PreviousDirection = Direction.Up;
+        ShouldMove = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        RotateSprite();
+        Direction nextDirection = DefineDirection(PreviousDirection);
+        RotatePanzer(nextDirection);
+        MovePanzer(nextDirection);
+        PreviousDirection = nextDirection;
     }
 
-//    private enum Direction
-//    {
-//        Up = 0,
-//        Down = 180,
-//        Left = 270,
-//        Right = 90
-//    }
-//
-//    private Direction DefineDirection(Direction PreviousDirection)
-//    {
-//      
-//
-//        float horizontal = Input.GetAxis("Horizontal");
-//        if (horizontal < 0) return Direction.Left;
-//        if (horizontal > 0) return Direction.Right;
-//        float vertical = Input.GetAxis("Vertical");
-//        if (vertical > 0) return Direction.Up;
-//        if (vertical < 0) return Direction.Down;
-//        return PreviousDirection;
-//    }
-
-    private void RotateSprite()
+    private enum Direction
     {
-//        if (Input.GetKey(KeyCode.UpArrow))
-//            transform.Translate(Vector3.forward * TurnSpeed * Time.deltaTime);
-//
-//        if (Input.GetKey(KeyCode.DownArrow))
-//            transform.Translate(-Vector3.forward * TurnSpeed * Time.deltaTime);
+        Up = 0,
+        Down = 180,
+        Left = 90,
+        Right = -90
+    }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-            transform.Rotate(Vector3.up, -TurnSpeed * Time.deltaTime);
+    private static Vector3 DirectionVector(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.Up:
+                return new Vector3(0, 1, 0);
+            case Direction.Down:
+                return new Vector3(0, -1, 0);
+            case Direction.Right:
+                return new Vector3(1, 0, 0);
+            case Direction.Left:
+                return new Vector3(-1, 0, 0);
+        }
+        return new Vector3(0, 0, 0);
+    }
 
-        if (Input.GetKey(KeyCode.RightArrow))
-            transform.Rotate(Vector3.up, TurnSpeed * Time.deltaTime);
+    private Direction DefineDirection(Direction PreviousDirection)
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
+        ShouldMove = horizontal != 0 || vertical != 0;
+
+        if (horizontal < 0) return Direction.Left;
+        if (horizontal > 0) return Direction.Right;
+        
+        if (vertical > 0) return Direction.Up;
+        if (vertical < 0) return Direction.Down;
+        return PreviousDirection;
+    }
+
+    private void MovePanzer(Direction direction)
+    {
+        if (ShouldMove)
+        {
+            Vector3 vector = DirectionVector(direction);
+            Vector3 nextPosition = this.transform.position + vector * Speed;
+            this.transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime);
+//            this.transform.position = nextPosition;
+            ShouldMove = false;
+        }   
+     }
+
+   
+
+    private void RotatePanzer(Direction direction)
+    {
+        transform.eulerAngles = new Vector3(0, 0, (float) direction);
     }
 }
