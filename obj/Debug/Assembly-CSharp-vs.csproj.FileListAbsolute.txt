@@ -12,3 +12,4 @@ D:\UnityWorkspace\WorkOct\Temp\bin\Debug\Unity.DataContract.dll
 D:\UnityWorkspace\WorkOct\Temp\bin\Debug\ICSharpCode.NRefactory.dll
 D:\UnityWorkspace\WorkOct\obj\Debug\Assembly-CSharp.dll
 D:\UnityWorkspace\WorkOct\obj\Debug\Assembly-CSharp.pdb
+D:\UnityWorkspace\WorkOct\Temp\bin\Debug\UnityEngine.UI.dll

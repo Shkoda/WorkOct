@@ -1,18 +1,28 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using System.Diagnostics;
+using Assets.Src.Battle.Game;
+using UnityEngine;
+
 
 public class PanzerController : MonoBehaviour
 {
+    public GameObject ParentObject;
+    public GameObject BulletPrefab;
+
     public float Speed;
 
     private Direction PreviousDirection;
     private bool ShouldMove;
 
+
+    private float ShotCooldown = 100;//millis
+    private Stopwatch stopwatch;
     // Use this for initialization
     private void Start()
     {
         PreviousDirection = Direction.Up;
         ShouldMove = false;
+        stopwatch = Stopwatch.StartNew();
     }
 
     // Update is called once per frame
@@ -22,31 +32,28 @@ public class PanzerController : MonoBehaviour
         RotatePanzer(nextDirection);
         MovePanzer(nextDirection);
         PreviousDirection = nextDirection;
-    }
+        Debugger.Log("PanzerController.Update() elapsed :: " + stopwatch.Elapsed.Milliseconds);
 
-    private enum Direction
-    {
-        Up = 0,
-        Down = 180,
-        Left = 90,
-        Right = -90
-    }
-
-    private static Vector3 DirectionVector(Direction direction)
-    {
-        switch (direction)
-        {
-            case Direction.Up:
-                return new Vector3(0, 1, 0);
-            case Direction.Down:
-                return new Vector3(0, -1, 0);
-            case Direction.Right:
-                return new Vector3(1, 0, 0);
-            case Direction.Left:
-                return new Vector3(-1, 0, 0);
+        if (Input.GetKey(KeyCode.Space) && stopwatch.Elapsed.Milliseconds>=ShotCooldown)
+            Shot();
         }
-        return new Vector3(0, 0, 0);
+
+    private void Shot()
+    {
+//        var bullet = (GameObject)Instantiate(
+//            BulletPrefab, 
+//            new Vector3(this.transform.position.x, this.transform.position.y, 0), 
+//            Quaternion.identity);
+
+        var bullet = (GameObject)Instantiate(BulletPrefab);
+        bullet.transform.parent = ParentObject.transform;
+        bullet.transform.position = this.transform.position;
+
+        stopwatch.Reset();
+        stopwatch.Start();
+           
     }
+
 
     private Direction DefineDirection(Direction PreviousDirection)
     {
@@ -57,7 +64,7 @@ public class PanzerController : MonoBehaviour
 
         if (horizontal < 0) return Direction.Left;
         if (horizontal > 0) return Direction.Right;
-        
+
         if (vertical > 0) return Direction.Up;
         if (vertical < 0) return Direction.Down;
         return PreviousDirection;
@@ -67,18 +74,17 @@ public class PanzerController : MonoBehaviour
     {
         if (ShouldMove)
         {
-            Vector3 vector = DirectionVector(direction);
-            Vector3 nextPosition = this.transform.position + vector * Speed;
+            Vector3 directionVector = DirectionUtils.GetVector(direction);
+            Vector3 nextPosition = this.transform.position + directionVector*Speed;
             this.transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime);
 //            this.transform.position = nextPosition;
             ShouldMove = false;
-        }   
-     }
+        }
+    }
 
-   
 
     private void RotatePanzer(Direction direction)
     {
-        transform.eulerAngles = new Vector3(0, 0, (float) direction);
+        transform.eulerAngles = new Vector3(0, 0, DirectionUtils.GetAngle(direction));
     }
 }
