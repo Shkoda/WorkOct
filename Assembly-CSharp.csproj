@@ -52,6 +52,7 @@
      <Compile Include="Assets\Src\Battle\Game\PanzerController.cs" />
      <Compile Include="Assets\Src\Battle\Game\Weapon\BulletColliding.cs" />
      <Compile Include="Assets\Src\Battle\Game\Weapon\BulletMovement.cs" />
+     <Compile Include="Assets\Src\Battle\HealthScript.cs" />
      <Compile Include="Assets\Src\Battle\Rooms\RoomManager.cs" />
      <Compile Include="Assets\Src\Debug\Console.cs" />
      <Compile Include="Assets\Src\Debug\DebugPanel.cs" />
