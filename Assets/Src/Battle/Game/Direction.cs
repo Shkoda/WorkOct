@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Src.Battle.Game
 {
-     enum Direction
+    public enum Direction
     {
         Up,
         Down,

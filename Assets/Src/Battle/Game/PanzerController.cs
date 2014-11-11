@@ -15,7 +15,7 @@ public class PanzerController : MonoBehaviour
     private bool ShouldMove;
 
 
-    private float ShotCooldown = 100;//millis
+    private float ShotCooldown = 500;//millis
     private Stopwatch stopwatch;
     // Use this for initialization
     private void Start()
@@ -35,10 +35,10 @@ public class PanzerController : MonoBehaviour
         Debugger.Log("PanzerController.Update() elapsed :: " + stopwatch.Elapsed.Milliseconds);
 
         if (Input.GetKey(KeyCode.Space) && stopwatch.Elapsed.Milliseconds>=ShotCooldown)
-            Shot();
+            Shot(nextDirection);
         }
 
-    private void Shot()
+    private void Shot(Direction direction)
     {
 //        var bullet = (GameObject)Instantiate(
 //            BulletPrefab, 
@@ -48,6 +48,10 @@ public class PanzerController : MonoBehaviour
         var bullet = (GameObject)Instantiate(BulletPrefab);
         bullet.transform.parent = ParentObject.transform;
         bullet.transform.position = this.transform.position;
+
+        var bulletMovement = bullet.GetComponent<BulletMovement>();
+        bulletMovement.SetDirection(direction);
+
 
         stopwatch.Reset();
         stopwatch.Start();
