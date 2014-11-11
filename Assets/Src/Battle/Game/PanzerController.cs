@@ -1,12 +1,11 @@
-﻿
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Assets.Src.Battle.Game;
 using UnityEngine;
 
 
 public class PanzerController : MonoBehaviour
 {
-    public GameObject ParentObject;
+    public GameObject BulletContainer;
     public GameObject BulletPrefab;
 
     public float Speed;
@@ -15,7 +14,7 @@ public class PanzerController : MonoBehaviour
     private bool ShouldMove;
 
 
-    private float ShotCooldown = 500;//millis
+    private float ShotCooldown = 500; //millis
     private Stopwatch stopwatch;
     // Use this for initialization
     private void Start()
@@ -29,24 +28,26 @@ public class PanzerController : MonoBehaviour
     private void Update()
     {
         Direction nextDirection = DefineDirection(PreviousDirection);
-        RotatePanzer(nextDirection);
-        MovePanzer(nextDirection);
+//        RotatePanzer(nextDirection);
+//        MovePanzer(nextDirection);
         PreviousDirection = nextDirection;
         Debugger.Log("PanzerController.Update() elapsed :: " + stopwatch.Elapsed.Milliseconds);
 
-        if (Input.GetKey(KeyCode.Space) && stopwatch.Elapsed.Milliseconds>=ShotCooldown)
+        if (Input.GetKey(KeyCode.Space) && stopwatch.Elapsed.Milliseconds >= ShotCooldown)
             Shot(nextDirection);
-        }
+    }
+
+    private void FixedUpdate()
+    {
+        RotatePanzer(PreviousDirection);
+        MovePanzer(PreviousDirection);
+    }
 
     private void Shot(Direction direction)
     {
-//        var bullet = (GameObject)Instantiate(
-//            BulletPrefab, 
-//            new Vector3(this.transform.position.x, this.transform.position.y, 0), 
-//            Quaternion.identity);
 
-        var bullet = (GameObject)Instantiate(BulletPrefab);
-        bullet.transform.parent = ParentObject.transform;
+        var bullet = (GameObject) Instantiate(BulletPrefab);
+        bullet.transform.parent = BulletContainer.transform;
         bullet.transform.position = this.transform.position;
 
         var bulletMovement = bullet.GetComponent<BulletMovement>();
@@ -55,7 +56,6 @@ public class PanzerController : MonoBehaviour
 
         stopwatch.Reset();
         stopwatch.Start();
-           
     }
 
 
@@ -79,8 +79,13 @@ public class PanzerController : MonoBehaviour
         if (ShouldMove)
         {
             Vector3 directionVector = DirectionUtils.GetVector(direction);
-            Vector3 nextPosition = this.transform.position + directionVector*Speed;
-            this.transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime);
+            Vector3 nextPosition = this.transform.position + directionVector*Speed*Time.deltaTime;
+
+
+//            this.transform.position = Vector3.MoveTowards(transform.position, nextPosition, Time.deltaTime);
+            this.transform.position = nextPosition;
+
+
 //            this.transform.position = nextPosition;
             ShouldMove = false;
         }
