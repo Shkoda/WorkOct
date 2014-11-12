@@ -96,6 +96,7 @@
      <Compile Include="Assets\Src\UI\Room\RoomDetailsController.cs" />
      <Compile Include="Assets\Src\UI\Room\RoomInfoHolder.cs" />
      <Compile Include="Assets\Src\UI\Room\RoomListController.cs" />
+     <Compile Include="Assets\Src\Utils\EnablerScript.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standart\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Standart\Standard Assets\Projectors\Guidelines.txt" />

@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AppearRoomList
+  m_Name: HideRoomList
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -19,19 +19,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 236
-        inSlope: -788.75
-        outSlope: -788.75
+        value: -344.5
+        inSlope: -417
+        outSlope: -417
         tangentMode: 10
-      - time: .800000012
-        value: -395
-        inSlope: -187.624954
-        outSlope: -187.624954
+      - time: .166666672
+        value: -414
+        inSlope: 314.250061
+        outSlope: 314.250061
         tangentMode: 10
-      - time: 1
-        value: -312.299988
-        inSlope: 413.500092
-        outSlope: 413.500092
+      - time: .833333313
+        value: 283
+        inSlope: 1045.50012
+        outSlope: 1045.50012
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -57,7 +57,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: .833333313
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,19 +76,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 236
-        inSlope: -788.75
-        outSlope: -788.75
+        value: -344.5
+        inSlope: -417
+        outSlope: -417
         tangentMode: 10
-      - time: .800000012
-        value: -395
-        inSlope: -187.624954
-        outSlope: -187.624954
+      - time: .166666672
+        value: -414
+        inSlope: 314.250061
+        outSlope: 314.250061
         tangentMode: 10
-      - time: 1
-        value: -312.299988
-        inSlope: 413.500092
-        outSlope: 413.500092
+      - time: .833333313
+        value: 283
+        inSlope: 1045.50012
+        outSlope: 1045.50012
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -97,4 +97,11 @@ AnimationClip:
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
-  m_Events: []
+  m_Events:
+  - time: .833333313
+    functionName: DisableOwner
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

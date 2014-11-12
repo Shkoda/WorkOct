@@ -45,6 +45,7 @@ public class LoginFormController : MonoBehaviour
         Debugger.Log("hiding login form...");
         LoginPanel.SetActive(false);
         RoomListController.SetRoomPanelEnabled(true);
+        RoomListController.ShowRoomList();
     }
 
  

@@ -21,15 +21,29 @@ public class RoomListController : MonoBehaviour
 
     private Dictionary<int, GameObject> InstantinatedRooms = new Dictionary<int, GameObject>();
 
+    private Animator Animator;
+
     public void SetRoomPanelEnabled(bool enabled)
     {
         RoomListPanel.SetActive(enabled);
-        RoomListPanel.GetComponent<Animator>().SetBool("ShowRoomList", enabled);
     }
+
+    public void ShowRoomList()
+    {
+        Animator.SetBool("ShowRoomList", true);
+    }
+
+    public void HideRoomList()
+    {
+        Animator.SetBool("ShowRoomList", false);
+    }
+
+
 
     // Use this for initialization
     private void Start()
     {
+        Animator = RoomListPanel.GetComponent<Animator>();
     }
 
     private void Awake()
@@ -53,11 +67,11 @@ public class RoomListController : MonoBehaviour
     public void RefreshRoomList()
     {
         RoomManager roomManager = OctClient.CurrentGame.RoomManager;
-        Debugger.Log("RoomListController.RefreshRoomList() roomManager == " + roomManager);
-        Debugger.Log("RoomListController.RefreshRoomList() roomManager.RoomsUpdated == " + roomManager.RoomsUpdated);
+//        Debugger.Log("RoomListController.RefreshRoomList() roomManager == " + roomManager);
+//        Debugger.Log("RoomListController.RefreshRoomList() roomManager.RoomsUpdated == " + roomManager.RoomsUpdated);
         List<RoomInfo> rooms = roomManager.getRooms().Values.ToList();
 
-        rooms.ForEach(room => Debugger.Log("RoomListController.RefreshRoomList() room " + room.id));
+//        rooms.ForEach(room => Debugger.Log("RoomListController.RefreshRoomList() room " + room.id));
 
         if (roomManager.RoomsUpdated)
         {
@@ -105,7 +119,7 @@ public class RoomListController : MonoBehaviour
 
     private void AddRoomInfo(Vector3 anchoredPosition, RoomInfo roomInfo)
     {
-        Debugger.Log("RoomListController.AddRoomInfo() room " + roomInfo.id);
+//        Debugger.Log("RoomListController.AddRoomInfo() room " + roomInfo.id);
         var info = (GameObject) Instantiate(RoomInfoPrefab);
 
         var rectTransform = info.GetComponent<RectTransform>();
@@ -123,5 +137,5 @@ public class RoomListController : MonoBehaviour
         InstantinatedRooms.Add(roomInfo.id, info);
     }
 
-    
+  
 }

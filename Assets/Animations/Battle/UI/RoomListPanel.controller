@@ -57,7 +57,22 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: b1e7c6ea6d0b9a94b9d79a2c5e06faee, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -324, y: 0, z: 0}
+  m_Position: {x: -288, y: -240, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110206934
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: HideRoomList 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: b3df32f205d196a4c8327a59e081ff63, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: -289, y: 65, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -67,12 +82,12 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: HideRoomList
-  m_Speed: -1
+  m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: b1e7c6ea6d0b9a94b9d79a2c5e06faee, type: 2}
+  - {fileID: 7400000, guid: b3df32f205d196a4c8327a59e081ff63, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 0, y: 48, z: 0}
+  m_Position: {x: -276, y: 0, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -91,12 +106,12 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110226133}
-      second: []
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
+    data:
+      first: {fileID: 110226133}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 12, y: -144, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
