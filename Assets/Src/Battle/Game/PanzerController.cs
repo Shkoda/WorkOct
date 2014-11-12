@@ -10,7 +10,7 @@ public class PanzerController : MonoBehaviour
 
     public float Speed;
 
-    private Direction PreviousDirection;
+    private Direction Direction;
     private bool ShouldMove;
 
 
@@ -19,7 +19,7 @@ public class PanzerController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        PreviousDirection = Direction.Up;
+        Direction = Direction.Up;
         ShouldMove = false;
         stopwatch = Stopwatch.StartNew();
     }
@@ -27,20 +27,16 @@ public class PanzerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Direction nextDirection = DefineDirection(PreviousDirection);
-//        RotatePanzer(nextDirection);
-//        MovePanzer(nextDirection);
-        PreviousDirection = nextDirection;
-        Debugger.Log("PanzerController.Update() elapsed :: " + stopwatch.Elapsed.Milliseconds);
+       Direction = DefineDirection(Direction);
 
         if (Input.GetKey(KeyCode.Space) && stopwatch.Elapsed.Milliseconds >= ShotCooldown)
-            Shot(nextDirection);
+            Shot(Direction);
     }
 
     private void FixedUpdate()
     {
-        RotatePanzer(PreviousDirection);
-        MovePanzer(PreviousDirection);
+        RotatePanzer(Direction);
+        MovePanzer(Direction);
     }
 
     private void Shot(Direction direction)
@@ -52,7 +48,6 @@ public class PanzerController : MonoBehaviour
 
         var bulletMovement = bullet.GetComponent<BulletMovement>();
         bulletMovement.SetDirection(direction);
-
 
         stopwatch.Reset();
         stopwatch.Start();

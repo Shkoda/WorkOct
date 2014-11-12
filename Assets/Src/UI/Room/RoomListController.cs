@@ -113,9 +113,11 @@ public class RoomListController : MonoBehaviour
         rectTransform.anchoredPosition = anchoredPosition;
 
         var infoHolder = info.GetComponent<RoomInfoHolder>();
+        infoHolder.Id = roomInfo.id;
         infoHolder.RoomNameField.text = "#" + roomInfo.id;
         infoHolder.InsideField.text = roomInfo.players.Count + "/" + roomInfo.capacity;
         infoHolder.StatusField.text = roomInfo.state.ToString();
+        infoHolder.RoomListController = this;
 
         info.SetActive(true);
         InstantinatedRooms.Add(roomInfo.id, info);

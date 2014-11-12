@@ -14,12 +14,4 @@ public class BulletColliding : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter2D(Collider2D otherCollider)
-    {
-     
-//            Destroy(gameObject); // Remember to always target the game object, otherwise you will just remove the script
-     
-
-
-    }
 }

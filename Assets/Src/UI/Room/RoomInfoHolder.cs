@@ -8,6 +8,9 @@ public class RoomInfoHolder : MonoBehaviour
     public Text InsideField;
     public Text StatusField;
 
+    public int Id { get; set; }
+    public RoomListController RoomListController { get; set; }
+
     // Use this for initialization
     private void Start()
     {
@@ -20,6 +23,7 @@ public class RoomInfoHolder : MonoBehaviour
 
     public void JoinRoom()
     {
-        
+        Debugger.Log("joining room "+Id);
+        RoomListController.SetRoomPanelEnabled(false);
     }
 }
