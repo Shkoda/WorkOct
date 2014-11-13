@@ -1538,7 +1538,6 @@ GameObject:
   - 222: {fileID: 751788021}
   - 114: {fileID: 751788020}
   - 95: {fileID: 751788024}
-  - 114: {fileID: 751788025}
   - 114: {fileID: 751788023}
   m_Layer: 5
   m_Name: RoomListPanel
@@ -1626,17 +1625,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &751788025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751788019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95f0ab5809216649b19b1c412d7c1e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &758482434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,7 +4249,7 @@ RectTransform:
   m_Father: {fileID: 2146641423}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}

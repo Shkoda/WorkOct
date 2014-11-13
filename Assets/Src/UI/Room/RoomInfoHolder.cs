@@ -24,7 +24,7 @@ public class RoomInfoHolder : MonoBehaviour
     public void JoinRoom()
     {
         Debugger.Log("joining room "+Id);
-//        RoomListController.SetRoomPanelEnabled(false);
+        RoomListController.SelectedRoomId = Id;
         RoomListController.HideRoomList();
     }
 }

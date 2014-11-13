@@ -94,6 +94,7 @@ Assets/Src/UI/Auth/LoginFormController.cs
 Assets/Src/UI/Room/RoomDetailsController.cs
 Assets/Src/UI/Room/RoomInfoHolder.cs
 Assets/Src/UI/Room/RoomListController.cs
+Assets/Src/Utils/Constants.cs
 Assets/Src/Utils/EnablerScript.cs
 "Assets/Standart/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs"
 "Assets/Standart/Standard Assets/Scripts/General Scripts/ActivateTrigger.cs"

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using Assets.Src.Utils;
 using UnityEngine;
 using System.Collections;
 using WorkOct.Protocol;
@@ -25,13 +26,34 @@ public class RoomListController : MonoBehaviour
 
     private Animator Animator;
 
-    public void SetRoomPanelEnabled(bool enabled)
+
+    [System.ComponentModel.DefaultValue(Constants.Undefined)] private int selectedRoomId;
+
+    public int SelectedRoomId
     {
-        RoomListPanel.SetActive(enabled);
+        get { return selectedRoomId; }
+        set
+        {
+            selectedRoomId = value;
+            RoomDetailsController.SelectedRoomId = value;
+        }
     }
+
+
+    public void Enable()
+    {
+        RoomListPanel.SetActive(true);
+    }
+
+    public void Disable()
+    {
+        RoomListPanel.SetActive(true);
+    }
+
 
     public void ShowRoomList()
     {
+        Animator = RoomListPanel.GetComponent<Animator>();
         Animator.SetBool("ShowRoomList", true);
     }
 
@@ -40,11 +62,17 @@ public class RoomListController : MonoBehaviour
         Animator.SetBool("ShowRoomList", false);
     }
 
-    public void ShowRoomDetails(int roomId)
+    public void ShowRoomDetails()
     {
-        
+        RoomDetailsController.Enable();
+        RoomDetailsController.Show();
     }
 
+    public void DisableAndShowRoomDetails()
+    {
+        Disable();
+        ShowRoomDetails();
+    }
 
 
     // Use this for initialization
@@ -143,6 +171,4 @@ public class RoomListController : MonoBehaviour
         info.SetActive(true);
         InstantinatedRooms.Add(roomInfo.id, info);
     }
-
-  
 }
