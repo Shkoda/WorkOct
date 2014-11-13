@@ -87,7 +87,6 @@
      <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />
      <Compile Include="Assets\Src\Scrollers\OffsetScroller.cs" />
      <Compile Include="Assets\Src\Scrollers\StripScroller.cs" />
-     <Compile Include="Assets\Src\Streak.cs" />
      <Compile Include="Assets\Src\Threading\MainThread.cs" />
      <Compile Include="Assets\Src\Threading\MainThreadObject.cs" />
      <Compile Include="Assets\Src\Threading\ThreadManager.cs" />

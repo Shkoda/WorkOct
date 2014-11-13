@@ -15,6 +15,8 @@ public class RoomListController : MonoBehaviour
     public GameObject RoomInfoPrefab;
     public RectTransform FirstPanelPositionObject;
 
+    public RoomDetailsController RoomDetailsController;
+
     private float TopX, TopY, TopZ;
     private float InfoHeight, OffsetBetweenInfos;
     private float DefaultRoomPanelHeight;
@@ -36,6 +38,11 @@ public class RoomListController : MonoBehaviour
     public void HideRoomList()
     {
         Animator.SetBool("ShowRoomList", false);
+    }
+
+    public void ShowRoomDetails(int roomId)
+    {
+        
     }
 
 
