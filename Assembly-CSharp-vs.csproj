@@ -82,6 +82,7 @@
      <Compile Include="Assets\Src\Platformer\MapBuilder.cs" />
      <Compile Include="Assets\Src\Scenes\ASceneController.cs" />
      <Compile Include="Assets\Src\Scenes\ASceneGui.cs" />
+     <Compile Include="Assets\Src\Scenes\LoadScript.cs" />
      <Compile Include="Assets\Src\Scenes\SceneControllerWrapper.cs" />
      <Compile Include="Assets\Src\Scenes\SceneLoader.cs" />
      <Compile Include="Assets\Src\Scrollers\BGScroller.cs" />

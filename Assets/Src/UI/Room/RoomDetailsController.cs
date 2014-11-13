@@ -42,6 +42,7 @@ public class RoomDetailsController : MonoBehaviour
 
     public void Show()
     {
+        Animator = RoomDetailsPane.GetComponent<Animator>();
         Animator.SetBool("ShowBattleInfo", true);
     }
 
