@@ -16,6 +16,8 @@ public class LoginFormController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        LoginPanel.SetActive(true);
+        LoginWindowAnimator.SetBool("LoggedIn", false);
         LoginButton.interactable = false;
     }
 
@@ -47,6 +49,9 @@ public class LoginFormController : MonoBehaviour
         RoomListController.Enable();
         RoomListController.ShowRoomList();
     }
+
+
+
 
  
 }

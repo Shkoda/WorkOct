@@ -113,20 +113,7 @@ public class OctClient : MonoBehaviour
         try
         {
             UserDataPermanentStorage.ClearGuid();
-            //NetworkHandler.Disconnect(true);
-            //Destroy(_instance.gameObject);
-            //Destroy(PrefabFactory.gameObject);
-
-            //_instance = null;
-            //PrefabFactory = null;
-            //loaderScreen = null;
-            //pinger = null;
-
             SceneLoader.Reset();
-            //LoadingScreen.DestroyScreen();
-            //Destroy(loaderScreen);
-
-            //Application.LoadLevel(0);
         }
         finally
         {

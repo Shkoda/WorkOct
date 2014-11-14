@@ -17,6 +17,7 @@ public class RoomListController : MonoBehaviour
     public RectTransform FirstPanelPositionObject;
 
     public RoomDetailsController RoomDetailsController;
+    public LoginFormController LoginFormController;
 
     private float TopX, TopY, TopZ;
     private float InfoHeight, OffsetBetweenInfos;
@@ -40,6 +41,7 @@ public class RoomListController : MonoBehaviour
     }
 
 
+
     public void Enable()
     {
         RoomListPanel.SetActive(true);
@@ -48,6 +50,13 @@ public class RoomListController : MonoBehaviour
     public void Disable()
     {
         RoomListPanel.SetActive(true);
+    }
+
+    public void DisableAndShowLogin()
+    {
+        Disable();
+//        LoginFormController.
+
     }
 
 
